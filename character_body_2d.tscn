@@ -60,10 +60,10 @@ radius = 18.7883
 radius = 72.5603
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6lhdh"]
-size = Vector2(42, 43)
+size = Vector2(80, 42)
 
 [node name="Golem" type="CharacterBody2D"]
-position = Vector2(520, 467)
+position = Vector2(525, 471)
 script = ExtResource("1_tv6qf")
 metadata/_edit_group_ = true
 
@@ -85,10 +85,11 @@ shape = SubResource("CircleShape2D_3vwkx")
 [node name="HitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(-1, 3.5)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_6lhdh")
 
 [node name="TakeDamadge" type="Timer" parent="."]
+wait_time = 0.5
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

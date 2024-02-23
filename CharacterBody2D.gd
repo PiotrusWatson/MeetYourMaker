@@ -51,12 +51,14 @@ func apply_gravity(delta):
 
 func _on_detection_area_body_entered(body):
 	if body.has_method("player"):
+		print("in my detect")
 		# Put player throw here = true
 		player = body
 
 
 func _on_detection_area_body_exited(body):
 	if body.has_method("player"):
+		print("out my detect")
 		# player_throw here = false
 		player = null
 	
@@ -67,6 +69,7 @@ func enemy():
 
 func _on_hit_box_body_entered(body):
 	if body.has_method("player"):
+		print("Player can hit me")
 		player_inacttack_zone = true
 		#
 		
@@ -75,6 +78,7 @@ func _on_hit_box_body_entered(body):
 
 func _on_hit_box_body_exited(body):
 	if body.has_method("player"):
+		print("Player can't hit me")
 		player_inacttack_zone = false
 			# Add emeny attacking detec
 			
@@ -84,6 +88,7 @@ func _on_hit_box_body_exited(body):
 func deal_with_damage():
 	if player_inacttack_zone and Global.player_current_attack == true:
 		if can_take_damage == true:
+			print("hurting")
 			health = health - 20
 			$TakeDamadge.start()
 			print("goli", health)
@@ -91,11 +96,12 @@ func deal_with_damage():
 		if health <= 0:
 			death()
 			
+			
 
 func death():
 	dead = true
 	#$AnimatedSprite2D.play("die")
-	await get_tree().create_timer(1).timeout
+	#await get_tree().create_timer(1).timeout
 	queue_free()
 
 func _on_take_damage_timeout():
