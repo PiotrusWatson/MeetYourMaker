@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_jtrst"]
 [ext_resource type="Texture2D" uid="uid://ctyw4sp2d0b0r" path="res://Sprites/robot_head_mouth_closed.png" id="2_uji0j"]
-[ext_resource type="Script" path="res://Scripts/BasicPlayerMovement.gd" id="3_brkno"]
+[ext_resource type="PackedScene" uid="uid://ct5vrvfvxdknu" path="res://Scenes/Components/mover.tscn" id="3_7r6qc"]
 [ext_resource type="Texture2D" uid="uid://db5annu71ih42" path="res://Sprites/spring_coiled1.png" id="5_1m80r"]
 [ext_resource type="Texture2D" uid="uid://4mqavbk5k8gy" path="res://Sprites/spring_uncoil1.png" id="5_tdsyu"]
 [ext_resource type="Texture2D" uid="uid://bgdq58kr63kuf" path="res://Sprites/spring_uncoiled2.png" id="6_qlfni"]
-[ext_resource type="Script" path="res://Scripts/JumpHandler.gd" id="7_shv84"]
+[ext_resource type="PackedScene" uid="uid://2g6eudh8524k" path="res://Scenes/Components/jump_handler.tscn" id="7_a76qr"]
+[ext_resource type="Script" path="res://Scripts/Health.gd" id="8_xwfk7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yeoou"]
 radius = 243.19
@@ -48,9 +49,6 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4xkau"]
-radius = 134.41
-
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 7.0
 script = ExtResource("1_jtrst")
@@ -61,9 +59,7 @@ shape = SubResource("CircleShape2D_yeoou")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_uji0j")
 
-[node name="BasicPlayerMovement" type="Node2D" parent="."]
-script = ExtResource("3_brkno")
-speed = 5000.0
+[node name="Mover" parent="." instance=ExtResource("3_7r6qc")]
 
 [node name="Spring" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -72,20 +68,9 @@ position = Vector2(0, 200)
 sprite_frames = SubResource("SpriteFrames_muur5")
 animation = &"uncoil"
 
-[node name="JumpHandler" type="Area2D" parent="."]
-position = Vector2(0, 200)
-script = ExtResource("7_shv84")
-jump_strength_min = 1000
-jump_strength_max = 10000
-jump_strength_increment = 500
+[node name="JumpHandler" parent="." instance=ExtResource("7_a76qr")]
 
-[node name="GroundedChecker" type="CollisionShape2D" parent="JumpHandler"]
-shape = SubResource("CircleShape2D_4xkau")
-
-[node name="JumpTimer" type="Timer" parent="JumpHandler"]
-wait_time = 0.2
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource("8_xwfk7")
 
 [connection signal="animation_finished" from="Spring" to="." method="_on_spring_animation_finished"]
-[connection signal="body_entered" from="JumpHandler" to="JumpHandler" method="_on_body_entered"]
-[connection signal="body_exited" from="JumpHandler" to="JumpHandler" method="_on_body_exited"]
-[connection signal="timeout" from="JumpHandler/JumpTimer" to="JumpHandler" method="_on_jump_timer_timeout"]

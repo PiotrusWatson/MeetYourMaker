@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@onready var movement = $BasicPlayerMovement
+@onready var movement = $Mover
 @onready var jump_handler = $JumpHandler
 @onready var spring_animator = $Spring
 var horizontal = 0

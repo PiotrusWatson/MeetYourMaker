@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://2g6eudh8524k"]
+
+[ext_resource type="Script" path="res://Scripts/JumpHandler.gd" id="1_81831"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4xkau"]
+radius = 134.41
+
+[node name="JumpHandler" type="Area2D"]
+position = Vector2(0, 200)
+script = ExtResource("1_81831")
+jump_strength_min = 1000
+jump_strength_max = 10000
+jump_strength_increment = 500
+
+[node name="GroundedChecker" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4xkau")
+
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
