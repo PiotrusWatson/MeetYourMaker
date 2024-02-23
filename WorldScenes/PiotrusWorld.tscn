@@ -23,4 +23,5 @@ position = Vector2(0, 5000)
 scale = Vector2(200, 200)
 disable_mode = 1
 
-[node name="follow_camera" parent="." instance=ExtResource("4_ejwi2")]
+[node name="follow_camera" parent="." node_paths=PackedStringArray("thing_to_follow") instance=ExtResource("4_ejwi2")]
+thing_to_follow = NodePath("../Player")
