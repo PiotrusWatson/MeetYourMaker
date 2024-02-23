@@ -17,8 +17,11 @@ func _physics_process(delta):
 
 
 func _on_hit_box_rock_body_entered(body):
-	if body.has_method("player"):
-		queue_free()
+	if body.has_method("player") and body.has_method("damage"):
+		body.damage(5)
+	queue_free()
+	
+		
 		
 		
 
