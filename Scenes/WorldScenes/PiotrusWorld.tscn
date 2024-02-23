@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://dme5fnnb22w0y"]
+[gd_scene load_steps=4 format=3 uid="uid://dme5fnnb22w0y"]
+
+[ext_resource type="PackedScene" uid="uid://c1ebx3hdak1hs" path="res://Scenes/Prefabs/player.tscn" id="1_f1sax"]
+[ext_resource type="PackedScene" uid="uid://gvojwq0l0xs7" path="res://Scenes/Placeholder/placeholder_floor.tscn" id="2_rsfd5"]
+
+[sub_resource type="TileSet" id="TileSet_8uq1b"]
 
 [node name="World" type="Node2D"]
+
+[node name="Signals" type="Node" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_f1sax")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_8uq1b")
+format = 2
+
+[node name="PlaceholderFloor" parent="." instance=ExtResource("2_rsfd5")]
+position = Vector2(0, 5000)
+scale = Vector2(200, 200)
+disable_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.115, 0.115)

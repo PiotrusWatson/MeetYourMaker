@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1ebx3hdak1hs"]
+
+[ext_resource type="Script" path="res://Scenes/WorldScenes/Player.gd" id="1_jtrst"]
+[ext_resource type="Texture2D" uid="uid://ctyw4sp2d0b0r" path="res://Sprites/robot_head_mouth_closed.png" id="2_uji0j"]
+[ext_resource type="Script" path="res://Scenes/WorldScenes/BasicPlayerMovement.gd" id="3_brkno"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yeoou"]
+radius = 243.19
+
+[node name="Player" type="RigidBody2D"]
+gravity_scale = 7.0
+script = ExtResource("1_jtrst")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yeoou")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_uji0j")
+
+[node name="BasicPlayerMovement" type="Node2D" parent="."]
+script = ExtResource("3_brkno")
+speed = 5000.0
