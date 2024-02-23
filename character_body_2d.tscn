@@ -63,9 +63,8 @@ radius = 72.5603
 size = Vector2(80, 42)
 
 [node name="Golem" type="CharacterBody2D"]
-position = Vector2(525, 471)
+position = Vector2(509, 462)
 script = ExtResource("1_tv6qf")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kcnde")
@@ -79,19 +78,23 @@ shape = SubResource("CircleShape2D_58mxo")
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(-3, 3)
+position = Vector2(-5, 2)
 shape = SubResource("CircleShape2D_3vwkx")
 
 [node name="HitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0, 4)
+position = Vector2(1, 5)
 shape = SubResource("RectangleShape2D_6lhdh")
 
 [node name="TakeDamadge" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="ThrowRocks" type="Marker2D" parent="."]
+position = Vector2(-21, -81)
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]
+[connection signal="timeout" from="TakeDamadge" to="." method="_on_take_damadge_timeout"]

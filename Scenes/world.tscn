@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://but7ksissii8n"]
+
+[ext_resource type="Texture2D" uid="uid://vgowawwjkfmg" path="res://icon.svg" id="1_dqvq3"]
+[ext_resource type="PackedScene" uid="uid://cfi8mf6s5spby" path="res://character_body_2d.tscn" id="2_hdvqb"]
+[ext_resource type="PackedScene" uid="uid://c1ebx3hdak1hs" path="res://Scenes/Prefabs/player.tscn" id="3_4sw6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcwyu"]
+size = Vector2(241.724, 127)
+
+[node name="World" type="Node2D"]
+
+[node name="Icon" type="CharacterBody2D" parent="."]
+position = Vector2(505.5, 355)
+scale = Vector2(3.11719, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon"]
+position = Vector2(33.9248, 160)
+shape = SubResource("RectangleShape2D_mcwyu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Icon"]
+position = Vector2(34.0852, 158)
+scale = Vector2(1.88095, 0.953125)
+texture = ExtResource("1_dqvq3")
+
+[node name="Golem" parent="." instance=ExtResource("2_hdvqb")]
+position = Vector2(900, 391)
+scale = Vector2(2, 2)
+
+[node name="Player" parent="." instance=ExtResource("3_4sw6v")]
+position = Vector2(396, 246)

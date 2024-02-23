@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+const rockpath = preload("res://Rock.tscn")
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 const JUMP_VELOCITY = -400.0
@@ -23,16 +24,15 @@ func _physics_process(delta):
 	if !dead:
 		$DetectionArea/CollisionShape2D.disabled = false
 		deal_with_damage() # This controls the golem getting hurt
-		print("not dead")
+		
 		# remove
 		
 		if  can_take_damage == true:
-			print("walking")
 			$AnimatedSprite2D.play('Gollem Walk')
 				
 	if dead:
 		$DetectionArea/CollisionShape2D.disabled = true
-		print("Dead")
+		
 	
 	
 #	
@@ -52,6 +52,7 @@ func apply_gravity(delta):
 func _on_detection_area_body_entered(body):
 	if body.has_method("player"):
 		print("in my detect")
+		throw()
 		# Put player throw here = true
 		player = body
 
@@ -86,7 +87,7 @@ func _on_hit_box_body_exited(body):
 			
 	
 func deal_with_damage():
-	if player_inacttack_zone and Global.player_current_attack == true:
+	if player_inacttack_zone: # and Global.player_current_attack == true
 		if can_take_damage == true:
 			print("hurting")
 			health = health - 20
@@ -104,10 +105,13 @@ func death():
 	#await get_tree().create_timer(1).timeout
 	queue_free()
 
-func _on_take_damage_timeout():
+
+
+func _on_take_damadge_timeout():
 	can_take_damage = true
 
-
-
-
+func throw():
+	var rock = rockpath.instantiate()
+	get_parent().add_child(rock)
+	rock.position = $ThrowRocks.global_position
 
