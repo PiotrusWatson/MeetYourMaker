@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwjmfsax82oku"]
+
+[ext_resource type="Script" path="res://Scripts/FollowPlayer.gd" id="1_faww5"]
+
+[node name="Camera2D" type="Camera2D" node_paths=PackedStringArray("thing_to_follow")]
+zoom = Vector2(0.115, 0.115)
+script = ExtResource("1_faww5")
+camera_speed = 10.0
+thing_to_follow = NodePath("")
