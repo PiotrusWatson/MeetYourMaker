@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://4mqavbk5k8gy" path="res://Sprites/spring_uncoil1.png" id="5_tdsyu"]
 [ext_resource type="Texture2D" uid="uid://bgdq58kr63kuf" path="res://Sprites/spring_uncoiled2.png" id="6_qlfni"]
 [ext_resource type="PackedScene" uid="uid://2g6eudh8524k" path="res://Scenes/Components/jump_handler.tscn" id="7_a76qr"]
-[ext_resource type="Script" path="res://Scripts/Health.gd" id="8_xwfk7"]
+[ext_resource type="PackedScene" uid="uid://1nsyv04ph5ji" path="res://Scenes/Components/health.tscn" id="8_xvlnc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yeoou"]
 radius = 243.19
@@ -70,7 +70,6 @@ animation = &"uncoil"
 
 [node name="JumpHandler" parent="." instance=ExtResource("7_a76qr")]
 
-[node name="Health" type="Node2D" parent="."]
-script = ExtResource("8_xwfk7")
+[node name="Health" parent="." instance=ExtResource("8_xvlnc")]
 
 [connection signal="animation_finished" from="Spring" to="." method="_on_spring_animation_finished"]

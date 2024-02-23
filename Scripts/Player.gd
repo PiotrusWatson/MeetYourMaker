@@ -3,6 +3,7 @@ extends RigidBody2D
 @onready var movement = $Mover
 @onready var jump_handler = $JumpHandler
 @onready var spring_animator = $Spring
+@onready var health = $Health
 var horizontal = 0
 
 
@@ -14,6 +15,9 @@ func charge_jump():
 func jump():
 	spring_animator.play("uncoil")
 	jump_handler.jump()
+	
+func damage(damage):
+	health.damage(damage)
 	
 	
 func _input(event):
