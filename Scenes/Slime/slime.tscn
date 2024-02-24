@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bube8rtyfyjr0"]
+[gd_scene load_steps=17 format=3 uid="uid://bube8rtyfyjr0"]
 
 [ext_resource type="Script" path="res://Scenes/Slime/Slime.gd" id="1_db1c1"]
 [ext_resource type="Texture2D" uid="uid://cmmhbii7dxyrn" path="res://Sprites/slime_default.png" id="2_crxrw"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://c0m1s5g2qkcob" path="res://Sprites/slime_compressed_vertically_2.png" id="5_a5srn"]
 [ext_resource type="Texture2D" uid="uid://dodf1oywyt45" path="res://Sprites/slime_compressed_horizontally_3.png" id="7_2vqxc"]
 [ext_resource type="AudioStream" uid="uid://c5ej4p12i6ftk" path="res://Audio/MobSounds/Slime/Slime_Movement_1.ogg" id="9_s0wlm"]
+[ext_resource type="AudioStream" uid="uid://d3f280tobeedx" path="res://Audio/MobSounds/Slime/Slime_Death_Sound.ogg" id="10_rnx6g"]
+[ext_resource type="AudioStream" uid="uid://c8rl1t4bjlpw7" path="res://Audio/MobSounds/Slime/Slime_Hurt_Sound.ogg" id="11_4jwtd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gdm4n"]
 animations = [{
@@ -106,13 +108,21 @@ shape = SubResource("RectangleShape2D_uiktd")
 [node name="SlimeMoveSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_s0wlm")
 
+[node name="SlimeDeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_rnx6g")
+attenuation = 3.605
+
+[node name="SlimeHurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_4jwtd")
+
 [connection signal="dead" from="Health" to="." method="_on_health_dead"]
+[connection signal="hurt" from="Health" to="." method="_on_health_hurt"]
 [connection signal="body_entered" from="PlayerDetect" to="." method="_on_player_detect_body_entered"]
 [connection signal="body_exited" from="PlayerDetect" to="." method="_on_player_detect_body_exited"]
-[connection signal="timeout" from="JumpCooldown" to="." method="_on_jump_cooldown_timeout"]
 [connection signal="timeout" from="JumpCooldown" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="StartJumpTimer" to="." method="_on_start_jump_timer_timeout"]
+[connection signal="timeout" from="JumpCooldown" to="." method="_on_jump_cooldown_timeout"]
 [connection signal="timeout" from="StartJumpTimer" to="." method="_on_start_jump_and_landing_timer_timeout"]
+[connection signal="timeout" from="StartJumpTimer" to="." method="_on_start_jump_timer_timeout"]
 [connection signal="area_entered" from="PlayerOnTop" to="." method="_on_player_on_top_area_entered"]
 [connection signal="body_entered" from="PlayerOnTop" to="." method="_on_player_on_top_body_entered"]
 [connection signal="body_entered" from="PlayerCollider" to="." method="_on_player_collider_body_entered"]
