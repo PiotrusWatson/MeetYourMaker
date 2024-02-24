@@ -1,11 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://00q3stnr7y01"]
+[gd_scene load_steps=12 format=3 uid="uid://00q3stnr7y01"]
 
 [ext_resource type="Script" path="res://Scenes/Snail/Snail.gd" id="1_1tpvc"]
+[ext_resource type="Texture2D" uid="uid://drrakta4m8k4t" path="res://Sprites/temp_death_1.png" id="2_6rknl"]
 [ext_resource type="Texture2D" uid="uid://b3rs1d8fsoxj" path="res://Sprites/snail_1.png" id="2_afnqq"]
 [ext_resource type="Texture2D" uid="uid://2j21r2my1jy0" path="res://Sprites/snail_2.png" id="3_nqfso"]
+[ext_resource type="Texture2D" uid="uid://b5q7bdmov2hkt" path="res://Sprites/temp_death_2.png" id="3_pbhw2"]
+[ext_resource type="PackedScene" uid="uid://1nsyv04ph5ji" path="res://Scenes/Components/health.tscn" id="6_pvx4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pumxq"]
+size = Vector2(416, 212)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_klyxe"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6rknl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pbhw2")
+}],
+"loop": false,
+"name": &"snail_death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_afnqq")
@@ -18,18 +35,49 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pumxq"]
-size = Vector2(416, 212)
+[sub_resource type="CircleShape2D" id="CircleShape2D_18ynt"]
+radius = 3000.0
 
-[node name="Snail" type="RigidBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlh8b"]
+size = Vector2(348, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sx7o7"]
+size = Vector2(453, 147)
+
+[node name="Snail" type="CharacterBody2D"]
 position = Vector2(566, 232)
 script = ExtResource("1_1tpvc")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_klyxe")
-animation = &"snail_move"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 52)
 shape = SubResource("RectangleShape2D_pumxq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_klyxe")
+animation = &"snail_death"
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+visible = false
+shape = SubResource("CircleShape2D_18ynt")
+
+[node name="PlayerOnTop" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerOnTop"]
+position = Vector2(2, -32)
+shape = SubResource("RectangleShape2D_hlh8b")
+
+[node name="PlayerCollider" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollider"]
+position = Vector2(4.5, 84.5)
+shape = SubResource("RectangleShape2D_sx7o7")
+
+[node name="Health" parent="." instance=ExtResource("6_pvx4h")]
+
+[connection signal="body_entered" from="PlayerDetect" to="." method="_on_player_detect_body_entered"]
+[connection signal="body_entered" from="PlayerOnTop" to="." method="_on_player_on_top_body_entered"]
+[connection signal="body_entered" from="PlayerCollider" to="." method="_on_player_collider_body_entered"]
+[connection signal="dead" from="Health" to="." method="_on_health_dead"]
