@@ -1,18 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://dme5fnnb22w0y"]
+[gd_scene load_steps=8 format=3 uid="uid://dme5fnnb22w0y"]
 
-[ext_resource type="Script" path="res://Scripts/Signals.gd" id="1_byl28"]
+[ext_resource type="Script" path="res://WorldScenes/Signals.gd" id="1_byl28"]
 [ext_resource type="PackedScene" uid="uid://c1ebx3hdak1hs" path="res://Scenes/Prefabs/player.tscn" id="1_f1sax"]
+[ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/Prefabs/god.tscn" id="1_f2xs5"]
 [ext_resource type="PackedScene" uid="uid://gvojwq0l0xs7" path="res://Scenes/Placeholder/placeholder_floor.tscn" id="2_rsfd5"]
 [ext_resource type="PackedScene" uid="uid://dwjmfsax82oku" path="res://Scenes/Prefabs/follow_camera.tscn" id="4_ejwi2"]
+[ext_resource type="Script" path="res://WorldScenes/HealthBar.gd" id="6_ny1hk"]
 
 [sub_resource type="TileSet" id="TileSet_8uq1b"]
 
 [node name="World" type="Node2D"]
-
-[node name="Signals" type="Node" parent="."]
 script = ExtResource("1_byl28")
 
-[node name="Player" parent="." instance=ExtResource("1_f1sax")]
+[node name="God" parent="." instance=ExtResource("1_f2xs5")]
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_f1sax")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8uq1b")
@@ -23,4 +25,17 @@ position = Vector2(0, 5000)
 scale = Vector2(200, 200)
 disable_mode = 1
 
-[node name="follow_camera" parent="." instance=ExtResource("4_ejwi2")]
+[node name="follow_camera" parent="." node_paths=PackedStringArray("thing_to_follow") instance=ExtResource("4_ejwi2")]
+thing_to_follow = NodePath("../Player")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBar" type="HSlider" parent="UI"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 16.0
+script = ExtResource("6_ny1hk")

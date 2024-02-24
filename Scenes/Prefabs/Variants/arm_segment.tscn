@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq4xekqth6v3v"]
+
+[ext_resource type="Texture2D" uid="uid://ck7536s17ql4s" path="res://Sprites/robot_arm.png" id="1_ifhm5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lcq3b"]
+radius = 116.0
+height = 410.0
+
+[node name="ArmSegment" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+mass = 0.01
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ifhm5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 21)
+shape = SubResource("CapsuleShape2D_lcq3b")
