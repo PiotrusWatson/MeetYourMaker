@@ -30,19 +30,16 @@ disable_mode = 1
 [node name="follow_camera" parent="." node_paths=PackedStringArray("thing_to_follow") instance=ExtResource("4_ejwi2")]
 thing_to_follow = NodePath("../Player")
 
-[node name="UI" type="Control" parent="follow_camera"]
+[node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HealthBar" type="ProgressBar" parent="follow_camera/UI"]
+[node name="HP" type="HSlider" parent="UI"]
 layout_mode = 0
-offset_left = -4814.0
-offset_top = -2607.0
-offset_right = -3519.0
-offset_bottom = -2450.0
-rounded = true
+offset_right = 8.0
+offset_bottom = 16.0
 script = ExtResource("6_ny1hk")
 
 [node name="Snail" parent="." instance=ExtResource("8_pi065")]

@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var speed = 1000
 @export var jump_speed = -1500
 @export var jump_cooldown = 5
-@export var damage_to_player = 1
+@export var damage_to_player = 20
 
 const UP = Vector2(0,-1)
 
