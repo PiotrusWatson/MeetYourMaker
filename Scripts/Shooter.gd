@@ -16,12 +16,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+func player():
+		pass
 
 func shoot():
 	if !cooldown_timer.is_stopped():
 		return
-		
-	
 	var projectile = projectile_prefab.instantiate()
 	projectile_box.add_child(projectile)
 	projectile.global_position = target_location.global_position
