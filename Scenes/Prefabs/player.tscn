@@ -74,3 +74,4 @@ animation = &"uncoil"
 
 [connection signal="animation_finished" from="Spring" to="." method="_on_spring_animation_finished"]
 [connection signal="dead" from="Health" to="." method="_on_health_dead"]
+[connection signal="hurt" from="Health" to="." method="_on_health_hurt"]
