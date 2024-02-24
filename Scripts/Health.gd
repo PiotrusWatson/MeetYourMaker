@@ -16,6 +16,8 @@ func _process(delta):
 func damage(damage):
 	health -= damage
 	hurt.emit()
+	print(health)
 	if health <= 0:
 		dead.emit()
+		
 		

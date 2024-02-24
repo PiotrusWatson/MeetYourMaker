@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 
+
 var speed = -20000
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +12,7 @@ func _ready():
 
 func _physics_process(delta):
 	velocity.x = speed * delta
+	Player.player_pos
 	move_and_slide()
 	
 	
@@ -19,7 +21,7 @@ func _physics_process(delta):
 func _on_hit_box_rock_body_entered(body):
 	if body.has_method("player") and body.has_method("damage"):
 		body.damage(5)
-	queue_free()
+		queue_free()
 	
 		
 		

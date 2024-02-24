@@ -6,6 +6,7 @@ extends RigidBody2D
 @onready var health = $Health
 var horizontal = 0
 
+var player_pos = $Player.get_position()
 
 func charge_jump():
 	spring_animator.visible = true

@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -400.0
 var SPEED = 40
 var player_chase = false
 var player = null
-var health = 50
+var health = 100
 var dead = true
 var damage
 var player_inacttack_zone = false
