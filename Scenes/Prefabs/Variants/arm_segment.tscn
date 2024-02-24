@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dq4xekqth6v3v"]
 
-[ext_resource type="Texture2D" uid="uid://dcc74if0r6wqf" path="res://Sprites/upper_arm.png" id="1_5vnsv"]
+[ext_resource type="Texture2D" uid="uid://dcc74if0r6wqf" path="res://Sprites/upper_arm.png" id="1_7260y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lcq3b"]
 radius = 94.61
@@ -14,7 +14,7 @@ gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.496, 1.232)
-texture = ExtResource("1_5vnsv")
+texture = ExtResource("1_7260y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 21)

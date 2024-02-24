@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnybpoaunwx0l"]
 
-[ext_resource type="PackedScene" uid="uid://dq4xekqth6v3v" path="res://Scenes/Prefabs/Variants/arm_segment.tscn" id="1_8x0d3"]
-[ext_resource type="Texture2D" uid="uid://dv1wconlr07b1" path="res://Sprites/lower_arm.png" id="2_e28e1"]
+[ext_resource type="PackedScene" uid="uid://dq4xekqth6v3v" path="res://Scenes/Prefabs/Variants/arm_segment.tscn" id="1_qykkq"]
+[ext_resource type="Texture2D" uid="uid://dv1wconlr07b1" path="res://Sprites/lower_arm.png" id="2_8bfvw"]
 
-[node name="ArmSegment" instance=ExtResource("1_8x0d3")]
+[node name="ArmSegment" instance=ExtResource("1_qykkq")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_e28e1")
+texture = ExtResource("2_8bfvw")
