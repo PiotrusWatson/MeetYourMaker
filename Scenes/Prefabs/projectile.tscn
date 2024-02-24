@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dn0mddfh2wie2"]
+
+[ext_resource type="Script" path="res://WorldScenes/Projectile.gd" id="1_lxgwo"]
+[ext_resource type="Texture2D" uid="uid://4tlf6mlal8t3" path="res://Assets/StarShapedProjectile.png" id="2_fi2dm"]
+[ext_resource type="PackedScene" uid="uid://ct5vrvfvxdknu" path="res://Scenes/Components/mover.tscn" id="3_xswti"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xbmt4"]
+radius = 76.99
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gk336"]
+radius = 96.13
+
+[node name="Projectile" type="RigidBody2D"]
+collision_mask = 4
+gravity_scale = 0.0
+script = ExtResource("1_lxgwo")
+speed = 1000
+
+[node name="Image" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_fi2dm")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xbmt4")
+disabled = true
+
+[node name="Mover" parent="." instance=ExtResource("3_xswti")]
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_gk336")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

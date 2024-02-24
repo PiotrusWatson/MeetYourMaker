@@ -20,7 +20,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="God" parent="." instance=ExtResource("1_60tu6")]
-death_scene = null
 game_scene = ExtResource("2_w1u0t")
 
 [node name="ColorRect" type="ColorRect" parent="."]

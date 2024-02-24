@@ -15,6 +15,7 @@ signal hurt(health)
 func _ready():
 	movement.init(self)
 	jump_handler.init(self)
+	arm_joint.init(self)
 
 
 	
@@ -24,6 +25,9 @@ func _input(event):
 		charge_jump()
 	elif event.is_action_released("Jump"):
 		jump()
+		
+	if event.is_action_pressed("Shoot"):
+		arm_joint.shoot()
 # Called when the node enters the scene tree for the first time.
 
 

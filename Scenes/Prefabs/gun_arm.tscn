@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cef5y1yl3jcfo"]
+[gd_scene load_steps=8 format=3 uid="uid://cef5y1yl3jcfo"]
 
 [ext_resource type="Script" path="res://Scripts/gun_arm.gd" id="1_xma6y"]
 [ext_resource type="PackedScene" uid="uid://dq4xekqth6v3v" path="res://Scenes/Prefabs/Variants/arm_segment.tscn" id="2_fp233"]
 [ext_resource type="PackedScene" uid="uid://cnybpoaunwx0l" path="res://Scenes/Prefabs/Variants/arm_segment_hand.tscn" id="3_0pjxa"]
 [ext_resource type="PackedScene" uid="uid://l724eee8km05" path="res://Scenes/Components/target_follower.tscn" id="4_ri6f8"]
 [ext_resource type="PackedScene" uid="uid://bcatkucck7slo" path="res://Scenes/Components/shooter.tscn" id="5_h6vhr"]
+[ext_resource type="PackedScene" uid="uid://dn0mddfh2wie2" path="res://Scenes/Prefabs/projectile.tscn" id="6_b2yru"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_av0cf"]
 
@@ -17,6 +18,7 @@ node_a = NodePath("../..")
 node_b = NodePath("../ArmSegment")
 
 [node name="ArmSegment" parent="." instance=ExtResource("2_fp233")]
+z_index = -1
 position = Vector2(-15, 110)
 collision_layer = 3
 collision_mask = 3
@@ -39,4 +41,6 @@ position = Vector2(6.295, 212.27)
 
 [node name="TargetFollower" parent="." instance=ExtResource("4_ri6f8")]
 
-[node name="Shooter" parent="." instance=ExtResource("5_h6vhr")]
+[node name="Shooter" parent="." node_paths=PackedStringArray("target_location") instance=ExtResource("5_h6vhr")]
+projectile_prefab = ExtResource("6_b2yru")
+target_location = NodePath("../Hand/BulletHole")
