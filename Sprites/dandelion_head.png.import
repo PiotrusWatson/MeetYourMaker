@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hsduse0lkvsh"
-path="res://.godot/imported/robot_jet_sprite.png-8e1e04a188169f757d51408b9bc2551a.ctex"
+uid="uid://s6dpiob11kyv"
+path="res://.godot/imported/dandelion_head.png-7ff48e1cd7226b646baec987be1d1469.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/robot_jet_sprite.png"
-dest_files=["res://.godot/imported/robot_jet_sprite.png-8e1e04a188169f757d51408b9bc2551a.ctex"]
+source_file="res://Sprites/dandelion_head.png"
+dest_files=["res://.godot/imported/dandelion_head.png-7ff48e1cd7226b646baec987be1d1469.ctex"]
 
 [params]
 

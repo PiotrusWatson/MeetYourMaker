@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckbt1h3uask23"]
+
+[ext_resource type="Script" path="res://Scenes/Prefabs/JetArm.gd" id="1_ge6dq"]
+[ext_resource type="PackedScene" uid="uid://dq4xekqth6v3v" path="res://Scenes/Prefabs/Variants/arm_segment.tscn" id="2_snqu0"]
+[ext_resource type="PackedScene" uid="uid://c1fm5m2vno8vi" path="res://Scenes/Prefabs/arm_segment_joint.tscn" id="3_e5s0j"]
+[ext_resource type="PackedScene" uid="uid://dqxyl16ebwfs3" path="res://Scenes/Prefabs/Variants/jet_hand.tscn" id="4_aeep0"]
+[ext_resource type="PackedScene" uid="uid://7ux0lcew314j" path="res://Scenes/Components/grounded_checker.tscn" id="5_cvmeq"]
+[ext_resource type="PackedScene" uid="uid://c5212rblg2onx" path="res://Scenes/Components/hoverer.tscn" id="6_6y6o3"]
+
+[node name="JetArm" type="Node2D"]
+z_index = -1
+position = Vector2(0, 82.53)
+script = ExtResource("1_ge6dq")
+
+[node name="ArmSegment" parent="." instance=ExtResource("2_snqu0")]
+rotation = 3.14159
+mass = 0.4
+gravity_scale = 1.0
+
+[node name="ArmSegment2" parent="." instance=ExtResource("3_e5s0j")]
+visibility_layer = 8
+position = Vector2(-2, 399.47)
+gravity_scale = 1.0
+
+[node name="JetHand" parent="." instance=ExtResource("4_aeep0")]
+
+[node name="GroundedChecker" parent="JetHand" instance=ExtResource("5_cvmeq")]
+collision_mask = 8
+
+[node name="PlayerArm" type="PinJoint2D" parent="."]
+position = Vector2(0, -0.57)
+node_a = NodePath("../..")
+node_b = NodePath("../ArmSegment")
+
+[node name="ArmArm2" type="PinJoint2D" parent="."]
+position = Vector2(0, 199.955)
+node_a = NodePath("../ArmSegment")
+node_b = NodePath("../ArmSegment2")
+
+[node name="Arm2Hand" type="PinJoint2D" parent="."]
+position = Vector2(0, 610.56)
+node_a = NodePath("../ArmSegment2")
+node_b = NodePath("../JetHand")
+
+[node name="Hoverer" parent="." instance=ExtResource("6_6y6o3")]
+hover_strength = 10000.0
+
+[connection signal="body_entered" from="JetHand/GroundedChecker" to="." method="_on_grounded_checker_body_entered"]

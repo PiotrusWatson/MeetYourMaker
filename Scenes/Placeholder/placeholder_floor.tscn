@@ -6,6 +6,8 @@
 
 [node name="PlaceholderFloor" type="StaticBody2D"]
 scale = Vector2(10, 10)
+collision_layer = 9
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, -4)

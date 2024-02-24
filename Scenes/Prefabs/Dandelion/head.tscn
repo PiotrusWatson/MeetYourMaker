@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://du21ih3do1tdk"]
+
+[ext_resource type="Texture2D" uid="uid://s6dpiob11kyv" path="res://Sprites/dandelion_head.png" id="1_uoia8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w7ecq"]
+radius = 96.13
+
+[node name="Head" type="RigidBody2D"]
+mass = 0.01
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uoia8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -131.675)
+shape = SubResource("CircleShape2D_w7ecq")

@@ -5,6 +5,8 @@ extends RigidBody2D
 @onready var spring_animator = $Spring
 @onready var health = $Health
 @onready var arm_joint = $GunArm
+@onready var jet_arm = $JetArm
+
 var horizontal = 0
 var mouse_pos
 
@@ -25,6 +27,11 @@ func _input(event):
 		charge_jump()
 	elif event.is_action_released("Jump"):
 		jump()
+		
+	if event.is_action_pressed("Hover"):
+		jet_arm.start_hover()
+	elif event.is_action_released("Hover"):
+		jet_arm.stop_hover()
 		
 	if event.is_action_pressed("Shoot"):
 		arm_joint.shoot()

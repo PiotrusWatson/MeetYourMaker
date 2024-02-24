@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b602cxlk6hh0d"]
+
+[ext_resource type="Texture2D" uid="uid://bwwk3oeskebsm" path="res://Sprites/dandelion_stem.png" id="1_l1tc2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxr3j"]
+height = 125.7
+
+[node name="Stem" type="RigidBody2D"]
+mass = 0.01
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l1tc2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -58.605)
+shape = SubResource("CapsuleShape2D_gxr3j")
