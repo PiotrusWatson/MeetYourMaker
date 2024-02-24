@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1ebx3hdak1hs"]
+[gd_scene load_steps=14 format=3 uid="uid://c1ebx3hdak1hs"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_jtrst"]
 [ext_resource type="Texture2D" uid="uid://ctyw4sp2d0b0r" path="res://Sprites/robot_head_mouth_closed.png" id="2_uji0j"]
+[ext_resource type="Texture2D" uid="uid://c6jf55i33qb0m" path="res://Sprites/pupil.png" id="3_1y4si"]
 [ext_resource type="PackedScene" uid="uid://ct5vrvfvxdknu" path="res://Scenes/Components/mover.tscn" id="3_7r6qc"]
 [ext_resource type="Texture2D" uid="uid://db5annu71ih42" path="res://Sprites/spring_coiled1.png" id="5_1m80r"]
 [ext_resource type="Texture2D" uid="uid://4mqavbk5k8gy" path="res://Sprites/spring_uncoil1.png" id="5_tdsyu"]
@@ -12,6 +13,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yeoou"]
 radius = 243.19
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vthxm"]
+radius = 30.28
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_muur5"]
 animations = [{
@@ -60,6 +64,54 @@ shape = SubResource("CircleShape2D_yeoou")
 
 [node name="Head" type="Sprite2D" parent="."]
 texture = ExtResource("2_uji0j")
+
+[node name="GooglyEyes" type="Node" parent="Head"]
+
+[node name="LeftPupil" type="RigidBody2D" parent="Head/GooglyEyes"]
+position = Vector2(-112.615, 0)
+collision_layer = 128
+collision_mask = 128
+mass = 0.01
+gravity_scale = 0.0
+linear_damp = 80.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Head/GooglyEyes/LeftPupil"]
+position = Vector2(109.17, -42)
+texture = ExtResource("3_1y4si")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/GooglyEyes/LeftPupil"]
+shape = SubResource("CircleShape2D_vthxm")
+
+[node name="RightPupil" type="RigidBody2D" parent="Head/GooglyEyes"]
+position = Vector2(105.685, 0)
+collision_layer = 128
+collision_mask = 128
+mass = 0.01
+gravity_scale = 0.0
+linear_damp = 80.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Head/GooglyEyes/RightPupil"]
+position = Vector2(109.17, -42)
+texture = ExtResource("3_1y4si")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/GooglyEyes/RightPupil"]
+shape = SubResource("CircleShape2D_vthxm")
+
+[node name="LeftEye" type="DampedSpringJoint2D" parent="Head/GooglyEyes"]
+position = Vector2(-112.85, 0)
+node_a = NodePath("../../..")
+node_b = NodePath("../LeftPupil")
+bias = 0.703
+length = 1.0
+stiffness = 40.0
+
+[node name="RightEye" type="DampedSpringJoint2D" parent="Head/GooglyEyes"]
+position = Vector2(105.605, 0)
+node_a = NodePath("../../..")
+node_b = NodePath("../RightPupil")
+bias = 0.677
+length = 1.0
+stiffness = 40.0
 
 [node name="Mover" parent="." instance=ExtResource("3_7r6qc")]
 
