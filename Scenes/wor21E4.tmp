@@ -1,17 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://but7ksissii8n"]
+[gd_scene load_steps=5 format=3 uid="uid://but7ksissii8n"]
 
 [ext_resource type="Texture2D" uid="uid://vgowawwjkfmg" path="res://icon.svg" id="1_dqvq3"]
-[ext_resource type="Script" path="res://WorldScenes/Signals.gd" id="1_kk40u"]
 [ext_resource type="PackedScene" uid="uid://cfi8mf6s5spby" path="res://character_body_2d.tscn" id="2_hdvqb"]
 [ext_resource type="PackedScene" uid="uid://c1ebx3hdak1hs" path="res://Scenes/Prefabs/player.tscn" id="3_4sw6v"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/god.tscn" id="5_7axo0"]
-[ext_resource type="PackedScene" path="res://WorldScenes/death_scene.tscn" id="6_8wye5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mcwyu"]
 size = Vector2(241.724, 127)
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_kk40u")
 
 [node name="Icon" type="CharacterBody2D" parent="."]
 position = Vector2(505.5, 355)
@@ -31,7 +27,3 @@ position = Vector2(896, 414)
 scale = Vector2(2, 2)
 
 [node name="Player" parent="." instance=ExtResource("3_4sw6v")]
-position = Vector2(464, 236)
-
-[node name="God" parent="." instance=ExtResource("5_7axo0")]
-death_scene = ExtResource("6_8wye5")

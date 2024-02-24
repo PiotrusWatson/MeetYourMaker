@@ -13,6 +13,7 @@ func _process(delta):
 
 func load_death():
 	load_scene(death_scene)
+	print("loaddeath")
 	
 func load_game():
 	load_scene(game_scene)
