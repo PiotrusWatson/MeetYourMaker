@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://brv1ks0h8xi82"]
+
+[ext_resource type="Script" path="res://Scenes/Prefabs/Dandelion.gd" id="1_y51t1"]
+[ext_resource type="PackedScene" uid="uid://b602cxlk6hh0d" path="res://Scenes/Prefabs/Dandelion/stem.tscn" id="2_mtjis"]
+[ext_resource type="PackedScene" uid="uid://du21ih3do1tdk" path="res://Scenes/Prefabs/Dandelion/head.tscn" id="3_fnyf2"]
+[ext_resource type="PackedScene" uid="uid://c7yu0awuxd188" path="res://Scenes/Prefabs/leaf.tscn" id="4_0ak50"]
+[ext_resource type="PackedScene" uid="uid://cn7q1jrmxw45r" path="res://Scenes/Prefabs/Dandelion/leaf_right.tscn" id="5_4fp31"]
+
+[node name="Dandelion" type="Node2D"]
+position = Vector2(0, -431.535)
+script = ExtResource("1_y51t1")
+
+[node name="Base" parent="." instance=ExtResource("2_mtjis")]
+position = Vector2(0, 235.415)
+gravity_scale = 0.0
+linear_damp = 1.0
+angular_damp = 1.0
+
+[node name="Head" parent="." instance=ExtResource("3_fnyf2")]
+z_index = 2
+linear_damp = 1.0
+angular_damp = 1.0
+
+[node name="Stem" parent="." instance=ExtResource("2_mtjis")]
+gravity_scale = 0.0
+
+[node name="Stem2" parent="." instance=ExtResource("2_mtjis")]
+position = Vector2(0, 121.32)
+gravity_scale = 0.0
+
+[node name="Leaf" parent="." instance=ExtResource("4_0ak50")]
+gravity_scale = 0.0
+
+[node name="Leaf2" parent="." instance=ExtResource("5_4fp31")]
+gravity_scale = 0.0
+
+[node name="BaseRobo" type="PinJoint2D" parent="."]
+position = Vector2(0, 219.795)
+node_a = NodePath("../..")
+node_b = NodePath("../Base")
+angular_limit_lower = -1.14145
+angular_limit_upper = 1.07861
+
+[node name="BaseStem2" type="PinJoint2D" parent="."]
+position = Vector2(0, 117.35)
+node_a = NodePath("../Base")
+node_b = NodePath("../Stem2")
+angular_limit_lower = -1.20602
+angular_limit_upper = 1.14319
+
+[node name="Stem2Stem" type="PinJoint2D" parent="."]
+node_a = NodePath("../Stem2")
+node_b = NodePath("../Stem")
+
+[node name="StemHead" type="PinJoint2D" parent="."]
+position = Vector2(0, -128.59)
+node_a = NodePath("../Stem")
+node_b = NodePath("../Head")
+
+[node name="BaseLeaf" type="PinJoint2D" parent="."]
+position = Vector2(0, 222.125)
+node_a = NodePath("../Base")
+node_b = NodePath("../Leaf")
+
+[node name="BaseLeaf2" type="PinJoint2D" parent="."]
+position = Vector2(0, 221.17)
+node_a = NodePath("../Base")
+node_b = NodePath("../Leaf2")

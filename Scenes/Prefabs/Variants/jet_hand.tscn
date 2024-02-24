@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqxyl16ebwfs3"]
+
+[ext_resource type="Texture2D" uid="uid://hsduse0lkvsh" path="res://Sprites/robot_jet_sprite.png" id="1_1vj1v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sqa3t"]
+radius = 155.737
+
+[node name="JetHand" type="RigidBody2D"]
+z_index = -2
+position = Vector2(0, 433.715)
+collision_layer = 8
+collision_mask = 8
+mass = 0.05
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_1vj1v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 141.445)
+shape = SubResource("CircleShape2D_sqa3t")

@@ -13,6 +13,8 @@ var player_rigidbody
 var jump_strength
 var grounded = false
 
+signal hit_ground
+
 
 func _ready():
 	jump_strength = jump_strength_min
@@ -59,6 +61,7 @@ func _on_jump_timer_timeout():
 
 func _on_body_entered(body):
 	grounded = true
+	hit_ground.emit()
 
 func _on_body_exited(body):
 	grounded = false

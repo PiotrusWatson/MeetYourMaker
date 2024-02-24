@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1fm5m2vno8vi"]
+
+[ext_resource type="PackedScene" uid="uid://dq4xekqth6v3v" path="res://Scenes/Prefabs/Variants/arm_segment.tscn" id="1_dhsgt"]
+[ext_resource type="Texture2D" uid="uid://28n5e8tjybob" path="res://Sprites/robot_joint.png" id="2_ik46p"]
+
+[node name="ArmSegment" instance=ExtResource("1_dhsgt")]
+visibility_layer = 2
+
+[node name="Sprite2D" parent="." index="0"]
+visibility_layer = 2
+
+[node name="Joint" type="Sprite2D" parent="." index="2"]
+visibility_layer = 2
+z_index = -1
+position = Vector2(0, -185.21)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ik46p")
