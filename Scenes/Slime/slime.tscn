@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://bube8rtyfyjr0"]
+
+[ext_resource type="Script" path="res://Scenes/Slime/Slime.gd" id="1_db1c1"]
+[ext_resource type="Texture2D" uid="uid://cmmhbii7dxyrn" path="res://Sprites/slime_default.png" id="2_crxrw"]
+[ext_resource type="Texture2D" uid="uid://de4fh7lh5be4r" path="res://Sprites/slime_compressed_horizontally_1.png" id="3_5fb5h"]
+[ext_resource type="Texture2D" uid="uid://fndl4uj8dehx" path="res://Sprites/slime_compressed_vertically_1.png" id="4_w5sl6"]
+[ext_resource type="Texture2D" uid="uid://c0m1s5g2qkcob" path="res://Sprites/slime_compressed_vertically_2.png" id="5_a5srn"]
+[ext_resource type="Texture2D" uid="uid://owpoapc8je5p" path="res://Sprites/slime_compressed_horizontally_2.png" id="6_dt3kt"]
+[ext_resource type="Texture2D" uid="uid://dodf1oywyt45" path="res://Sprites/slime_compressed_horizontally_3.png" id="7_2vqxc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gdm4n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_crxrw")
+}],
+"loop": true,
+"name": &"slime_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_w5sl6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5fb5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dt3kt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2vqxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dt3kt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5fb5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w5sl6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a5srn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w5sl6")
+}],
+"loop": true,
+"name": &"slime_jump",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbtay"]
+size = Vector2(320, 261)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rmypw"]
+radius = 1500.0
+
+[node name="Slime" type="CharacterBody2D"]
+script = ExtResource("1_db1c1")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gdm4n")
+animation = &"slime_jump"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 10.5)
+shape = SubResource("RectangleShape2D_vbtay")
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+shape = SubResource("CircleShape2D_rmypw")
+
+[node name="JumpCooldown" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="PlayerDetect" to="." method="_on_player_detect_body_entered"]
+[connection signal="body_exited" from="PlayerDetect" to="." method="_on_player_detect_body_exited"]
+[connection signal="timeout" from="JumpCooldown" to="." method="_on_timer_timeout"]
