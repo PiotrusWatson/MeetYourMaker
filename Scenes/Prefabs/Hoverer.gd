@@ -4,8 +4,11 @@ extends Node
 @export var hover_position = Vector2.ZERO
 @export var rigidbody : RigidBody2D
 @export var recharge_amount = 2.0
+@export var max_recharge_time = 6.0
 @onready var hover_timer = $HoverTime
 @onready var recharge_timer = $RechargeTimer
+
+var recharge_time = 0
 var max_time
 var out_of_fuel = false
 var hovering = false
@@ -34,30 +37,27 @@ func stop_hovering():
 	hover_timer.wait_time = current_time
 	
 func start_recharging():
-	if hovering:
+	if hovering or !recharge_timer.is_stopped:
 		return
 	recharge_timer.start()
+	
 func stop_recharging():
 	recharge_timer.stop()
 
-	
-	pass # Replace with function body
-	
-	
-	
-
 
 func _on_hover_time_timeout():
-	hover_timer.wait_time = 0
+	hover_timer.wait_time = max_time
 	out_of_fuel = true
+	hovering = false
 
 
 func _on_recharge_timer_timeout():
-	if hover_timer.wait_time < max_time:
-		hover_timer.wait_time += recharge_amount
+	if recharge_time< max_recharge_time:
+		recharge_time += recharge_amount
 	else:
 		out_of_fuel = false
+		recharge_time = 0
 		stop_recharging()
 
-
+	pass # Replace with function body
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c1ebx3hdak1hs"]
+[gd_scene load_steps=15 format=3 uid="uid://c1ebx3hdak1hs"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_jtrst"]
 [ext_resource type="Texture2D" uid="uid://ctyw4sp2d0b0r" path="res://Sprites/robot_head_mouth_closed.png" id="2_uji0j"]
@@ -10,12 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://2g6eudh8524k" path="res://Scenes/Components/jump_handler.tscn" id="7_a76qr"]
 [ext_resource type="PackedScene" uid="uid://1nsyv04ph5ji" path="res://Scenes/Components/health.tscn" id="8_xvlnc"]
 [ext_resource type="PackedScene" uid="uid://cef5y1yl3jcfo" path="res://Scenes/Prefabs/gun_arm.tscn" id="9_5cddh"]
-[ext_resource type="Script" path="res://Scenes/Prefabs/JetArm.gd" id="11_16nmi"]
-[ext_resource type="PackedScene" uid="uid://dq4xekqth6v3v" path="res://Scenes/Prefabs/Variants/arm_segment.tscn" id="11_l3cx4"]
-[ext_resource type="PackedScene" uid="uid://c1fm5m2vno8vi" path="res://Scenes/Prefabs/Dandelion/arm_segment_joint.tscn" id="12_7but4"]
-[ext_resource type="PackedScene" uid="uid://c5212rblg2onx" path="res://Scenes/Components/hoverer.tscn" id="14_ex260"]
-[ext_resource type="PackedScene" uid="uid://dqxyl16ebwfs3" path="res://Scenes/Prefabs/Variants/jet_hand.tscn" id="14_sffou"]
-[ext_resource type="PackedScene" uid="uid://7ux0lcew314j" path="res://Scenes/Components/grounded_checker.tscn" id="15_k6kw7"]
+[ext_resource type="PackedScene" uid="uid://ckbt1h3uask23" path="res://Scenes/Prefabs/jet_arm.tscn" id="11_1pjay"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yeoou"]
 radius = 243.19
@@ -139,45 +134,8 @@ z_index = -4
 position = Vector2(0, 18.595)
 body_to_attach = NodePath("..")
 
-[node name="JetArm" type="Node2D" parent="."]
-z_index = -1
-position = Vector2(0, 82.53)
-script = ExtResource("11_16nmi")
-
-[node name="ArmSegment" parent="JetArm" instance=ExtResource("11_l3cx4")]
-rotation = 3.14159
-mass = 0.4
-gravity_scale = 1.0
-
-[node name="ArmSegment2" parent="JetArm" instance=ExtResource("12_7but4")]
-visibility_layer = 8
-position = Vector2(-2, 399.47)
-gravity_scale = 1.0
-
-[node name="JetHand" parent="JetArm" instance=ExtResource("14_sffou")]
-
-[node name="GroundedChecker" parent="JetArm/JetHand" instance=ExtResource("15_k6kw7")]
-collision_mask = 8
-
-[node name="PlayerArm" type="PinJoint2D" parent="JetArm"]
-position = Vector2(0, -0.57)
-node_a = NodePath("../..")
-node_b = NodePath("../ArmSegment")
-
-[node name="ArmArm2" type="PinJoint2D" parent="JetArm"]
-position = Vector2(0, 199.955)
-node_a = NodePath("../ArmSegment")
-node_b = NodePath("../ArmSegment2")
-
-[node name="Arm2Hand" type="PinJoint2D" parent="JetArm"]
-position = Vector2(0, 610.56)
-node_a = NodePath("../ArmSegment2")
-node_b = NodePath("../JetHand")
-
-[node name="Hoverer" parent="JetArm" instance=ExtResource("14_ex260")]
-hover_strength = 10000.0
+[node name="JetArm" parent="." instance=ExtResource("11_1pjay")]
 
 [connection signal="animation_finished" from="Spring" to="." method="_on_spring_animation_finished"]
 [connection signal="dead" from="Health" to="." method="_on_health_dead"]
 [connection signal="hurt" from="Health" to="." method="_on_health_hurt"]
-[connection signal="body_entered" from="JetArm/JetHand/GroundedChecker" to="JetArm" method="_on_grounded_checker_body_entered"]

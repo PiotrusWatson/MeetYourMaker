@@ -25,4 +25,5 @@ func stop_hover():
 
 
 func _on_grounded_checker_body_entered(body):
+	print("hi im ground")
 	hoverer.start_recharging()

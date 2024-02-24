@@ -10,6 +10,7 @@ wait_time = 4.0
 one_shot = true
 
 [node name="RechargeTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [connection signal="timeout" from="HoverTime" to="." method="_on_hover_time_timeout"]
 [connection signal="timeout" from="RechargeTimer" to="." method="_on_recharge_timer_timeout"]
