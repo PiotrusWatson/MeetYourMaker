@@ -4,12 +4,40 @@ extends RigidBody2D
 @onready var jump_handler = $JumpHandler
 @onready var spring_animator = $Spring
 @onready var health = $Health
-@onready var arm_joint = $Arm_Joint
+@onready var arm_joint = $GunArm
 var horizontal = 0
 var mouse_pos
 
 signal dead
 signal hurt(health)
+
+
+func _ready():
+	movement.init(self)
+	jump_handler.init(self)
+
+
+	
+	
+func _input(event):
+	if event.is_action_pressed("Jump"):
+		charge_jump()
+	elif event.is_action_released("Jump"):
+		jump()
+# Called when the node enters the scene tree for the first time.
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	horizontal = Input.get_axis("Left", "Right")
+	arm_joint.rotate_towards_point(get_global_mouse_position(), delta)
+
+func _physics_process(deltPinJoint2Da):
+	movement.move_player(Vector2(horizontal, 0))
+
+func player():
+	pass
 
 
 func charge_jump():
@@ -24,29 +52,6 @@ func jump():
 func damage(damage):
 	health.damage(damage)
 	
-	
-func _input(event):
-	if event.is_action_pressed("Jump"):
-		charge_jump()
-	elif event.is_action_released("Jump"):
-		jump()
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	movement.init(self)
-	jump_handler.init(self)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	horizontal = Input.get_axis("Left", "Right")
-	arm_joint.rotate_towards_point(get_global_mouse_position(), delta)
-
-func _physics_process(delta):
-	movement.move_player(Vector2(horizontal, 0))
-
-func player():
-	pass
-
 func _on_spring_animation_finished():
 	spring_animator.visible = false
 
