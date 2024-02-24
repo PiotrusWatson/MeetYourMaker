@@ -6,7 +6,6 @@ extends Node2D
 @onready var target_follower = $TargetFollower
 @onready var shooter = $Shooter
 
-
 func init(gun_owner):
 	shooter.init(gun_owner)
 	

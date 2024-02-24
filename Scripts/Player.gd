@@ -9,17 +9,36 @@ extends RigidBody2D
 
 var horizontal = 0
 var mouse_pos
-
+var powerup_list
+var enabled_list = [false, false]
 signal dead
 signal hurt(health)
+signal healing
+
 
 
 func _ready():
 	movement.init(self)
 	jump_handler.init(self)
 	arm_joint.init(self)
+	powerup_list = [arm_joint, jet_arm]
+	for i in range(len(powerup_list)):
+		powerup_list[i].visible = enabled_list[i]
+	
 
+func handle_other_powerups(index: Global.POWERUP_INDEX, useful_amount):
+	if index == Global.POWERUP_INDEX.HEALTH:
+		heal(useful_amount)
+	elif index == Global.POWERUP_INDEX.MAX_HEALTH:
+		health.increase_max_health(useful_amount)
+	
+func enable_function(index: Global.POWERUP_INDEX):
+	enabled_list[index] = true
+	powerup_list[index].visible = true
 
+func heal(amount):
+	health.heal(amount)
+	healing.emit()
 	
 	
 func _input(event):
@@ -28,12 +47,12 @@ func _input(event):
 	elif event.is_action_released("Jump"):
 		jump()
 		
-	if event.is_action_pressed("Hover"):
+	if event.is_action_pressed("Hover") and enabled_list[Global.POWERUP_INDEX.JET]:
 		jet_arm.start_hover()
-	elif event.is_action_released("Hover"):
+	elif event.is_action_released("Hover") and enabled_list[Global.POWERUP_INDEX.JET]:
 		jet_arm.stop_hover()
 		
-	if event.is_action_pressed("Shoot"):
+	if event.is_action_pressed("Shoot") and enabled_list[Global.POWERUP_INDEX.GUN]:
 		arm_joint.shoot()
 # Called when the node enters the scene tree for the first time.
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ckbt1h3uask23"]
 
-[ext_resource type="Script" path="res://Scenes/Prefabs/JetArm.gd" id="1_ge6dq"]
+[ext_resource type="Script" path="res://Scripts/JetArm.gd" id="1_ge6dq"]
 [ext_resource type="PackedScene" uid="uid://dq4xekqth6v3v" path="res://Scenes/Prefabs/Variants/arm_segment.tscn" id="2_snqu0"]
 [ext_resource type="PackedScene" uid="uid://c1fm5m2vno8vi" path="res://Scenes/Prefabs/arm_segment_joint.tscn" id="3_e5s0j"]
 [ext_resource type="PackedScene" uid="uid://dqxyl16ebwfs3" path="res://Scenes/Prefabs/Variants/jet_hand.tscn" id="4_aeep0"]

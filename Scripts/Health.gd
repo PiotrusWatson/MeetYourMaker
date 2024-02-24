@@ -12,7 +12,17 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func increase_max_health(amount):
+	max_health += amount
+	health = max_health
 	
+func heal(amount):
+	if health + amount > max_health:
+		health = max_health
+	else:
+		health += amount
+		
 func damage(damage):
 	health -= damage
 	hurt.emit(health)
