@@ -6,7 +6,8 @@ extends RigidBody2D
 @onready var health = $Health
 var horizontal = 0
 
-var player_pos = $Player.get_position()
+signal dead
+
 
 func charge_jump():
 	spring_animator.visible = true
@@ -44,3 +45,7 @@ func player():
 
 func _on_spring_animation_finished():
 	spring_animator.visible = false
+
+
+func _on_health_dead():
+	dead.emit()

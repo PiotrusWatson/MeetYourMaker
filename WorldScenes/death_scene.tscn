@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7ejshjka1ct2"]
+
+[ext_resource type="FontFile" uid="uid://ckpbcif48sqjf" path="res://Fonts/Comic Papyrus.ttf" id="1_0h41j"]
+[ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/Prefabs/god.tscn" id="1_60tu6"]
+[ext_resource type="PackedScene" uid="uid://dme5fnnb22w0y" path="res://WorldScenes/PiotrusWorld.tscn" id="2_w1u0t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xuxjx"]
+font = ExtResource("1_0h41j")
+font_size = 100
+
+[sub_resource type="Theme" id="Theme_6an7e"]
+default_font = ExtResource("1_0h41j")
+
+[node name="DeathScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="God" parent="." instance=ExtResource("1_60tu6")]
+death_scene = null
+game_scene = ExtResource("2_w1u0t")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1164.0
+offset_bottom = 745.0
+color = Color(1, 0, 1, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "You are dead :("
+label_settings = SubResource("LabelSettings_xuxjx")
+
+[node name="Reload" type="Button" parent="."]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 387.0
+offset_right = 624.0
+offset_bottom = 469.0
+theme = SubResource("Theme_6an7e")
+theme_override_font_sizes/font_size = 32
+text = "Restart
+"
+
+[connection signal="pressed" from="Reload" to="God" method="_on_reload_pressed"]
