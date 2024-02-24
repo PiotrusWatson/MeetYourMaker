@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1ebx3hdak1hs"]
+[gd_scene load_steps=14 format=3 uid="uid://c1ebx3hdak1hs"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_jtrst"]
 [ext_resource type="Texture2D" uid="uid://ctyw4sp2d0b0r" path="res://Sprites/robot_head_mouth_closed.png" id="2_uji0j"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://bgdq58kr63kuf" path="res://Sprites/spring_uncoiled2.png" id="6_qlfni"]
 [ext_resource type="PackedScene" uid="uid://2g6eudh8524k" path="res://Scenes/Components/jump_handler.tscn" id="7_a76qr"]
 [ext_resource type="PackedScene" uid="uid://1nsyv04ph5ji" path="res://Scenes/Components/health.tscn" id="8_xvlnc"]
+[ext_resource type="Script" path="res://Scenes/Prefabs/FollowTarget.gd" id="9_ahoh5"]
+[ext_resource type="PackedScene" uid="uid://dq4xekqth6v3v" path="res://Scenes/Components/arm_segment.tscn" id="9_gywt7"]
+[ext_resource type="PackedScene" uid="uid://cnybpoaunwx0l" path="res://Scenes/Components/arm_segment_hand.tscn" id="10_0dc7f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yeoou"]
 radius = 243.19
@@ -71,6 +74,26 @@ animation = &"uncoil"
 [node name="JumpHandler" parent="." instance=ExtResource("7_a76qr")]
 
 [node name="Health" parent="." instance=ExtResource("8_xvlnc")]
+
+[node name="Arm_Joint" type="PinJoint2D" parent="."]
+position = Vector2(-6.295, 56.32)
+node_a = NodePath("..")
+node_b = NodePath("ArmSegment")
+script = ExtResource("9_ahoh5")
+
+[node name="ArmSegment" parent="Arm_Joint" instance=ExtResource("9_gywt7")]
+position = Vector2(0, 26.435)
+
+[node name="Joint1" type="PinJoint2D" parent="Arm_Joint"]
+node_a = NodePath("../ArmSegment")
+node_b = NodePath("ArmSegment")
+
+[node name="ArmSegment" parent="Arm_Joint/Joint1" instance=ExtResource("10_0dc7f")]
+position = Vector2(0, 550.41)
+collision_layer = 1
+collision_mask = 1
+mass = 1.0
+gravity_scale = 1.0
 
 [connection signal="animation_finished" from="Spring" to="." method="_on_spring_animation_finished"]
 [connection signal="dead" from="Health" to="." method="_on_health_dead"]

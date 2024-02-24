@@ -4,7 +4,9 @@ extends RigidBody2D
 @onready var jump_handler = $JumpHandler
 @onready var spring_animator = $Spring
 @onready var health = $Health
+@onready var arm_joint = $Arm_Joint
 var horizontal = 0
+var mouse_pos
 
 signal dead
 signal hurt(health)
@@ -37,6 +39,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	horizontal = Input.get_axis("Left", "Right")
+	arm_joint.rotate_towards_point(get_global_mouse_position(), delta)
 
 func _physics_process(delta):
 	movement.move_player(Vector2(horizontal, 0))
@@ -50,7 +53,6 @@ func _on_spring_animation_finished():
 
 func _on_health_dead():
 	dead.emit()
-	print("dead2")
 
 
 func _on_health_hurt(health):
