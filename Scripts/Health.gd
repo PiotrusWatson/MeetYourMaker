@@ -13,6 +13,10 @@ func _ready():
 func _process(delta):
 	pass
 
+func increase_max_health(amount):
+	max_health += amount
+	health = max_health
+	
 func heal(amount):
 	if health + amount > max_health:
 		health = max_health

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://crfk3jkwtky6"]
+
+[ext_resource type="Script" path="res://WorldScenes/HealthItem.gd" id="1_k3qqc"]
+[ext_resource type="Texture2D" uid="uid://huy800313r7c" path="res://Assets/Heart states.png" id="2_i2ht2"]
+[ext_resource type="PackedScene" uid="uid://kr5jcvadutpv" path="res://Scenes/Components/pickup_manager.tscn" id="3_kyuml"]
+
+[node name="HealthItem" type="Node2D"]
+position = Vector2(-0.8, 2000)
+script = ExtResource("1_k3qqc")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(156, 156)
+scale = Vector2(29.5, 29.5)
+texture = ExtResource("2_i2ht2")
+
+[node name="PickupManager" parent="." instance=ExtResource("3_kyuml")]
+position = Vector2(150, 132)
+scale = Vector2(0.4, 0.4)
+powerup_type = 2
+
+[connection signal="picked_up" from="PickupManager" to="." method="_on_pickup_manager_picked_up"]

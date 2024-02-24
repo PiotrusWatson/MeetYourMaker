@@ -13,6 +13,8 @@ var powerup_list
 var enabled_list = [false, false]
 signal dead
 signal hurt(health)
+signal healing
+
 
 
 func _ready():
@@ -23,11 +25,20 @@ func _ready():
 	for i in range(len(powerup_list)):
 		powerup_list[i].visible = enabled_list[i]
 	
+
+func handle_other_powerups(index: Global.POWERUP_INDEX, useful_amount):
+	if index == Global.POWERUP_INDEX.HEALTH:
+		heal(useful_amount)
+	elif index == Global.POWERUP_INDEX.MAX_HEALTH:
+		health.increase_max_health(useful_amount)
 	
 func enable_function(index: Global.POWERUP_INDEX):
 	enabled_list[index] = true
 	powerup_list[index].visible = true
 
+func heal(amount):
+	health.heal(amount)
+	healing.emit()
 	
 	
 func _input(event):

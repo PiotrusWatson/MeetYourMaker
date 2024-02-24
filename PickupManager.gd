@@ -2,10 +2,16 @@ extends Area2D
 
 signal picked_up(powerup_type)
 @export var powerup_type = Global.POWERUP_INDEX.GUN
+@export var powerups_end_here = 1
+
+var useful_amount = -1
 var is_powerup = false
+
+func setup(amount):
+	useful_amount = amount
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	is_powerup = powerup_type < 2
+	is_powerup = powerup_type < powerups_end_here + 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,5 +24,10 @@ func _on_body_entered(body):
 		body.enable_function(powerup_type)
 		picked_up.emit(powerup_type)
 		return
+	if body.has_method("handle_other_powerups"):
+		body.handle_other_powerups(powerup_type, useful_amount)
+		picked_up.emit(powerup_type)
+	
+	
 	
 	

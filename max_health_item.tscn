@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdotuvgx76i0v"]
+
+[ext_resource type="PackedScene" uid="uid://crfk3jkwtky6" path="res://Scenes/Prefabs/Powerups/health_item.tscn" id="1_2jrtc"]
+
+[node name="MaxHealthItem" instance=ExtResource("1_2jrtc")]
+amount_to_heal = 50
+
+[node name="Icon" parent="." index="0"]
+scale = Vector2(40, 40)
+
+[node name="PickupManager" parent="." index="1"]
+powerup_type = 3
