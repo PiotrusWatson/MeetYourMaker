@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://but7ksissii8n"]
+[gd_scene load_steps=8 format=3 uid="uid://but7ksissii8n"]
 
 [ext_resource type="Script" path="res://WorldScenes/Signals.gd" id="1_kk40u"]
 [ext_resource type="PackedScene" uid="uid://cfi8mf6s5spby" path="res://character_body_2d.tscn" id="2_hdvqb"]
 [ext_resource type="PackedScene" uid="uid://cutkc4lf1hxrc" path="res://Scenes/Prefabs/player.tscn" id="3_4sw6v"]
 [ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/Prefabs/god.tscn" id="5_7axo0"]
 [ext_resource type="TileSet" uid="uid://r8qbwros3elc" path="res://Scenes/Forestblocks.tres" id="7_btngt"]
+[ext_resource type="Texture2D" uid="uid://bke7e5tm5uoyo" path="res://Assets/Forest of Illusion Files/Forest of Illusion Files/middle.png" id="7_dib8l"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_kk40u")
@@ -23,3 +24,23 @@ tile_set = ExtResource("7_btngt")
 rendering_quadrant_size = 1
 format = 2
 layer_0/tile_data = PackedInt32Array(131071, 2, 0, 65536, 65538, 0, 65537, 65538, 0, 65538, 65538, 0, 65539, 65538, 0, 65540, 65538, 0, 65541, 65538, 0, 65542, 65538, 0, 65543, 65538, 0, 65544, 65538, 0, 65545, 65538, 0, 65546, 65538, 0, 65547, 65538, 0, 65548, 65538, 0, 65549, 65536, 1, 65550, 131072, 1, 196607, 0, 2, 131072, 65536, 2, 131073, 65536, 2, 131074, 65536, 2, 131075, 65536, 2, 131076, 65536, 2, 131077, 65536, 2, 131078, 65536, 2, 131079, 65536, 2, 131080, 65536, 2, 131081, 65536, 2, 131082, 65536, 2, 131083, 65536, 2, 131084, 65536, 2, 131085, 65536, 2, 131086, 131072, 2, 13, 0, 1, 14, 131072, 1, -65523, 0, 1, -131059, 0, 1, -196595, 0, 1, -65522, 131072, 1, -131058, 131072, 1, -196594, 131072, 1, -262131, 2, 0, -262130, 131074, 0)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(7888.13, 3264)
+
+[node name="trees" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(3464, -1096)
+scale = Vector2(20.542, 12.005)
+texture = ExtResource("7_dib8l")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
