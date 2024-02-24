@@ -6,3 +6,4 @@ extends Node2D
 
 func _ready():
 	player.dead.connect(god.load_death)
+

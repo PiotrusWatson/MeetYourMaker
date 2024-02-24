@@ -3,7 +3,7 @@ extends Node2D
 @export var max_health = 100
 var health
 signal dead
-signal hurt
+signal hurt(health)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health = max_health
@@ -15,8 +15,7 @@ func _process(delta):
 	
 func damage(damage):
 	health -= damage
-	hurt.emit()
-	print(health)
+	hurt.emit(health)
 	if health <= 0:
 		dead.emit()
 		

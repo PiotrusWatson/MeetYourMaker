@@ -7,6 +7,7 @@ extends RigidBody2D
 var horizontal = 0
 
 signal dead
+signal hurt(health)
 
 
 func charge_jump():
@@ -49,3 +50,7 @@ func _on_spring_animation_finished():
 
 func _on_health_dead():
 	dead.emit()
+
+
+func _on_health_hurt(health):
+	hurt.emit(health)
