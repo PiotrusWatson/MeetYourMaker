@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var gravity = 2000
 @export var speed = 100
-@export var damage_to_player = 1
+@export var damage_to_player = 20
 
 const UP = Vector2(0,-1)
 

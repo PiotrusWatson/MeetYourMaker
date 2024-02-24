@@ -1,15 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://dme5fnnb22w0y"]
+[gd_scene load_steps=10 format=3 uid="uid://dme5fnnb22w0y"]
 
 [ext_resource type="Script" path="res://WorldScenes/Signals.gd" id="1_byl28"]
 [ext_resource type="PackedScene" uid="uid://c1ebx3hdak1hs" path="res://Scenes/Prefabs/player.tscn" id="1_f1sax"]
-[ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/Prefabs/god.tscn" id="1_f2xs5"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/god.tscn" id="1_f2xs5"]
 [ext_resource type="PackedScene" uid="uid://gvojwq0l0xs7" path="res://Scenes/Placeholder/placeholder_floor.tscn" id="2_rsfd5"]
 [ext_resource type="PackedScene" uid="uid://dwjmfsax82oku" path="res://Scenes/Prefabs/follow_camera.tscn" id="4_ejwi2"]
+[ext_resource type="PackedScene" uid="uid://bube8rtyfyjr0" path="res://Scenes/Slime/slime.tscn" id="6_4ha73"]
 [ext_resource type="Script" path="res://WorldScenes/HealthBar.gd" id="6_ny1hk"]
-[ext_resource type="PackedScene" uid="uid://dpc0egmfche1q" path="res://Scenes/Prefabs/Powerups/gun_arm_powerup.tscn" id="7_tptu8"]
-[ext_resource type="PackedScene" uid="uid://bmktuh7uf2lt6" path="res://Scenes/Prefabs/Powerups/jet_arm_powerup.tscn" id="8_l8o1o"]
-[ext_resource type="PackedScene" uid="uid://crfk3jkwtky6" path="res://Scenes/Prefabs/Powerups/health_item.tscn" id="9_1pp3w"]
-[ext_resource type="PackedScene" uid="uid://cdotuvgx76i0v" path="res://max_health_item.tscn" id="10_snt6n"]
+[ext_resource type="PackedScene" uid="uid://00q3stnr7y01" path="res://Scenes/Snail/snail.tscn" id="8_pi065"]
 
 [sub_resource type="TileSet" id="TileSet_8uq1b"]
 
@@ -32,29 +30,19 @@ disable_mode = 1
 [node name="follow_camera" parent="." node_paths=PackedStringArray("thing_to_follow") instance=ExtResource("4_ejwi2")]
 thing_to_follow = NodePath("../Player")
 
-[node name="UI" type="Control" parent="follow_camera"]
+[node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HealthBar" type="ProgressBar" parent="follow_camera/UI"]
+[node name="HP" type="HSlider" parent="UI"]
 layout_mode = 0
-offset_left = -4814.0
-offset_top = -2607.0
-offset_right = -3519.0
-offset_bottom = -2450.0
-rounded = true
-show_percentage = false
+offset_right = 8.0
+offset_bottom = 16.0
 script = ExtResource("6_ny1hk")
 
-[node name="GunArmPowerup" parent="." instance=ExtResource("7_tptu8")]
-position = Vector2(1888, 1128)
+[node name="Snail" parent="." instance=ExtResource("8_pi065")]
 
-[node name="JetArmPowerup" parent="." instance=ExtResource("8_l8o1o")]
-position = Vector2(-1295, 1094.53)
-
-[node name="HealthItem" parent="." instance=ExtResource("9_1pp3w")]
-
-[node name="MaxHealthItem" parent="." instance=ExtResource("10_snt6n")]
-position = Vector2(852.28, 2000)
+[node name="Slime" parent="." instance=ExtResource("6_4ha73")]
+position = Vector2(1616, 121)

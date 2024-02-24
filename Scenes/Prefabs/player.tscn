@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bgdq58kr63kuf" path="res://Sprites/spring_uncoiled2.png" id="6_qlfni"]
 [ext_resource type="PackedScene" uid="uid://2g6eudh8524k" path="res://Scenes/Components/jump_handler.tscn" id="7_a76qr"]
 [ext_resource type="PackedScene" uid="uid://1nsyv04ph5ji" path="res://Scenes/Components/health.tscn" id="8_xvlnc"]
-[ext_resource type="PackedScene" uid="uid://cef5y1yl3jcfo" path="res://Scenes/Prefabs/gun_arm.tscn" id="9_5cddh"]
-[ext_resource type="PackedScene" uid="uid://ckbt1h3uask23" path="res://Scenes/Prefabs/jet_arm.tscn" id="11_1pjay"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/gun_arm.tscn" id="9_5cddh"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/jet_arm.tscn" id="11_1pjay"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yeoou"]
 radius = 243.19
