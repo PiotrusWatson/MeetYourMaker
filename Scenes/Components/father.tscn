@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://chltn27ui8xiq"]
+
+[ext_resource type="Script" path="res://Father.gd" id="1_m6gp0"]
+[ext_resource type="Texture2D" path="res://Assets/Father_Fullbody.png.webp" id="2_31o4y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3c0xm"]
+
+[node name="Father" type="CharacterBody2D"]
+script = ExtResource("1_m6gp0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_31o4y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3c0xm")
+
+[node name="Timer" type="Timer" parent="."]

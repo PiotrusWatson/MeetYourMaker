@@ -4,30 +4,32 @@
 [ext_resource type="Texture2D" uid="uid://huy800313r7c" path="res://Assets/Heart states.png" id="2_50npx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vjaxd"]
-radius = 0.554461
+radius = 0.608867
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y6tt"]
 size = Vector2(35, 20)
 
 [node name="Bullet" type="CharacterBody2D"]
+scale = Vector2(10, 10)
 collision_mask = 2
 script = ExtResource("1_kn045")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(182, 145)
+position = Vector2(-2.048, -10.496)
 scale = Vector2(25.3125, 25.625)
 shape = SubResource("CircleShape2D_vjaxd")
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(185, 154)
 scale = Vector2(5, 5.062)
 texture = ExtResource("2_50npx")
 
 [node name="HitBox_Rock" type="Area2D" parent="."]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox_Rock"]
-position = Vector2(183.5, 143)
+position = Vector2(-2.048, -10.496)
 shape = SubResource("RectangleShape2D_8y6tt")
 
-[connection signal="body_entered" from="HitBox_Rock" to="." method="_on_hit_box_rock_body_entered"]
+[node name="Timer" type="Timer" parent="."]

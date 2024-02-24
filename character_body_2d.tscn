@@ -54,46 +54,46 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_58mxo"]
-radius = 18.7883
+radius = 1024.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3vwkx"]
-radius = 72.5603
+radius = 1024.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6lhdh"]
-size = Vector2(80, 42)
+size = Vector2(226.1, 213.9)
 
 [node name="Golem" type="CharacterBody2D"]
 texture_filter = 1
-position = Vector2(509, 462)
-scale = Vector2(500, 500)
+collision_mask = 3
 script = ExtResource("1_tv6qf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(49, 46.051)
 sprite_frames = SubResource("SpriteFrames_kcnde")
 animation = &"Gollem Walk"
 frame_progress = 0.16237
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_58mxo")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(-5, 2)
+scale = Vector2(10, 10)
 shape = SubResource("CircleShape2D_3vwkx")
 
 [node name="HitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(1, 5)
+position = Vector2(-2.5, -17.5001)
+scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_6lhdh")
 
 [node name="TakeDamadge" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="ThrowRocks" type="Marker2D" parent="."]
-position = Vector2(-21, -81)
+[node name="ThrowArea" type="Marker2D" parent="."]
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
