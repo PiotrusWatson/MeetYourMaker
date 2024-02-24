@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dme5fnnb22w0y"]
+[gd_scene load_steps=10 format=3 uid="uid://dme5fnnb22w0y"]
 
 [ext_resource type="Script" path="res://WorldScenes/Signals.gd" id="1_byl28"]
 [ext_resource type="PackedScene" uid="uid://c1ebx3hdak1hs" path="res://Scenes/Prefabs/player.tscn" id="1_f1sax"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://gvojwq0l0xs7" path="res://Scenes/Placeholder/placeholder_floor.tscn" id="2_rsfd5"]
 [ext_resource type="PackedScene" uid="uid://dwjmfsax82oku" path="res://Scenes/Prefabs/follow_camera.tscn" id="4_ejwi2"]
 [ext_resource type="Script" path="res://WorldScenes/HealthBar.gd" id="6_ny1hk"]
+[ext_resource type="PackedScene" uid="uid://dpc0egmfche1q" path="res://Scenes/Prefabs/Powerups/gun_arm_powerup.tscn" id="7_tptu8"]
+[ext_resource type="PackedScene" uid="uid://bmktuh7uf2lt6" path="res://Scenes/Prefabs/Powerups/jet_arm_powerup.tscn" id="8_l8o1o"]
 
 [sub_resource type="TileSet" id="TileSet_8uq1b"]
 
@@ -39,3 +41,9 @@ layout_mode = 0
 offset_right = 8.0
 offset_bottom = 16.0
 script = ExtResource("6_ny1hk")
+
+[node name="GunArmPowerup" parent="." instance=ExtResource("7_tptu8")]
+position = Vector2(1888, 1128)
+
+[node name="JetArmPowerup" parent="." instance=ExtResource("8_l8o1o")]
+position = Vector2(-1295, 1094.53)
