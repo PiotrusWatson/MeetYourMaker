@@ -1,33 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://but7ksissii8n"]
+[gd_scene load_steps=7 format=3 uid="uid://but7ksissii8n"]
 
-[ext_resource type="Texture2D" uid="uid://vgowawwjkfmg" path="res://icon.svg" id="1_dqvq3"]
 [ext_resource type="Script" path="res://WorldScenes/Signals.gd" id="1_kk40u"]
 [ext_resource type="PackedScene" uid="uid://cfi8mf6s5spby" path="res://character_body_2d.tscn" id="2_hdvqb"]
 [ext_resource type="PackedScene" uid="uid://c1ebx3hdak1hs" path="res://Scenes/Prefabs/player.tscn" id="3_4sw6v"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/god.tscn" id="5_7axo0"]
-[ext_resource type="PackedScene" path="res://WorldScenes/death_scene.tscn" id="6_8wye5"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcwyu"]
-size = Vector2(241.724, 127)
+[ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/Prefabs/god.tscn" id="5_7axo0"]
+[ext_resource type="PackedScene" uid="uid://b7ejshjka1ct2" path="res://WorldScenes/death_scene.tscn" id="6_8wye5"]
+[ext_resource type="TileSet" uid="uid://r8qbwros3elc" path="res://Scenes/Forestblocks.tres" id="7_btngt"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_kk40u")
 
-[node name="Icon" type="CharacterBody2D" parent="."]
-position = Vector2(505.5, 355)
-scale = Vector2(3.11719, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon"]
-position = Vector2(33.9248, 160)
-shape = SubResource("RectangleShape2D_mcwyu")
-
-[node name="Sprite2D" type="Sprite2D" parent="Icon"]
-position = Vector2(34.0852, 158)
-scale = Vector2(1.88095, 0.953125)
-texture = ExtResource("1_dqvq3")
-
 [node name="Golem" parent="." instance=ExtResource("2_hdvqb")]
-position = Vector2(896, 414)
+position = Vector2(6112, 238)
 scale = Vector2(2, 2)
 
 [node name="Player" parent="." instance=ExtResource("3_4sw6v")]
@@ -35,3 +19,9 @@ position = Vector2(464, 236)
 
 [node name="God" parent="." instance=ExtResource("5_7axo0")]
 death_scene = ExtResource("6_8wye5")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("7_btngt")
+rendering_quadrant_size = 1
+format = 2
+layer_0/tile_data = PackedInt32Array(131071, 2, 0, 65536, 65538, 0, 65537, 65538, 0, 65538, 65538, 0, 65539, 65538, 0, 65540, 65538, 0, 65541, 65538, 0, 65542, 65538, 0, 65543, 65538, 0, 65544, 65538, 0, 65545, 65538, 0, 65546, 65538, 0, 65547, 65538, 0, 65548, 65538, 0, 65549, 65536, 1, 65550, 131072, 1, 196607, 0, 2, 131072, 65536, 2, 131073, 65536, 2, 131074, 65536, 2, 131075, 65536, 2, 131076, 65536, 2, 131077, 65536, 2, 131078, 65536, 2, 131079, 65536, 2, 131080, 65536, 2, 131081, 65536, 2, 131082, 65536, 2, 131083, 65536, 2, 131084, 65536, 2, 131085, 65536, 2, 131086, 131072, 2, 13, 0, 1, 14, 131072, 1, -65523, 0, 1, -131059, 0, 1, -196595, 0, 1, -65522, 131072, 1, -131058, 131072, 1, -196594, 131072, 1, -262131, 2, 0, -262130, 131074, 0)
