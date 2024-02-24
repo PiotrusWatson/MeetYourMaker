@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://vl5buqbys6ac"]
+
+[ext_resource type="Texture2D" uid="uid://huy800313r7c" path="res://Assets/Heart states.png" id="1_m1ilg"]
+[ext_resource type="Script" path="res://attemptofollow.gd" id="2_kql5h"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture_filter = 1
+position = Vector2(77, 69)
+scale = Vector2(10.625, 9.625)
+texture = ExtResource("1_m1ilg")
+script = ExtResource("2_kql5h")

@@ -63,7 +63,9 @@ radius = 72.5603
 size = Vector2(80, 42)
 
 [node name="Golem" type="CharacterBody2D"]
+texture_filter = 1
 position = Vector2(509, 462)
+scale = Vector2(500, 500)
 script = ExtResource("1_tv6qf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
