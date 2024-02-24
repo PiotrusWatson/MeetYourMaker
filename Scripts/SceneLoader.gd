@@ -1,7 +1,7 @@
 extends Node
 
-@export var death_scene: PackedScene
-@export var game_scene: PackedScene
+var death_scene = load("res://WorldScenes/death_scene.tscn")
+var game_scene = load("res://WorldScenes/PiotrusWorld.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

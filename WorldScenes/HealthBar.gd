@@ -10,8 +10,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	max_value = $"../../../Player".health.max_health 
-	player_health = $"../../../Player".health.health 
+	max_value = $"../../../../Player".health.max_health 
+	player_health = $"../../../../Player".health.health 
 	value = player_health
 
 

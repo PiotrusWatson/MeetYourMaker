@@ -41,7 +41,7 @@ func heal(amount):
 	healing.emit()
 	
 	
-func _input(event):
+func _unhandled_input(event):
 	if event.is_action_pressed("Jump"):
 		charge_jump()
 	elif event.is_action_released("Jump"):

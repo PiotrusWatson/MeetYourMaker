@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://bkbqlgujgtcst"
+path="res://.godot/imported/FoundItem.dialogue-827d67a34d04a37c1dbe2d7d4e75bf8d.tres"
+
+[deps]
+
+source_file="res://Dialogue/FoundItem.dialogue"
+dest_files=["res://.godot/imported/FoundItem.dialogue-827d67a34d04a37c1dbe2d7d4e75bf8d.tres"]
+
+[params]
+
+defaults=true

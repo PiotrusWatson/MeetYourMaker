@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dh4jx711jy2sc"
+path="res://.godot/imported/ControlExplanation.dialogue-6d467ed9acdd2c45950fd31763987b88.tres"
+
+[deps]
+
+source_file="res://Dialogue/ControlExplanation.dialogue"
+dest_files=["res://.godot/imported/ControlExplanation.dialogue-6d467ed9acdd2c45950fd31763987b88.tres"]
+
+[params]
+
+defaults=true

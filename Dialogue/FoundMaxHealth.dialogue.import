@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://b7x51wau18lw8"
+path="res://.godot/imported/FoundMaxHealth.dialogue-2a6ab0c4c26565c3c5c683da5f52181f.tres"
+
+[deps]
+
+source_file="res://Dialogue/FoundMaxHealth.dialogue"
+dest_files=["res://.godot/imported/FoundMaxHealth.dialogue-2a6ab0c4c26565c3c5c683da5f52181f.tres"]
+
+[params]
+
+defaults=true

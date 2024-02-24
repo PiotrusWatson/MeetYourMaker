@@ -23,6 +23,10 @@ func _on_body_entered(body):
 	if body.has_method("enable_function") and is_powerup:
 		body.enable_function(powerup_type)
 		picked_up.emit(powerup_type)
+		if powerup_type == Global.POWERUP_INDEX.GUN:
+			DialogueManager.show_dialogue_balloon(load("res://Dialogue/FoundItem.dialogue"))
+		elif powerup_type == Global.POWERUP_INDEX.JET:
+			DialogueManager.show_dialogue_balloon(load("res://Dialogue/FoundJetArm.dialogue"))
 		return
 	if body.has_method("handle_other_powerups"):
 		body.handle_other_powerups(powerup_type, useful_amount)

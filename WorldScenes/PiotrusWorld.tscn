@@ -32,18 +32,30 @@ disable_mode = 1
 [node name="follow_camera" parent="." node_paths=PackedStringArray("thing_to_follow") instance=ExtResource("4_ejwi2")]
 thing_to_follow = NodePath("../Player")
 
-[node name="UI" type="Control" parent="follow_camera"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CanvasLayer" type="CanvasLayer" parent="follow_camera"]
+follow_viewport_enabled = true
 
-[node name="HealthBar" type="ProgressBar" parent="follow_camera/UI"]
-layout_mode = 0
-offset_left = -4814.0
-offset_top = -2607.0
-offset_right = -3519.0
-offset_bottom = -2450.0
+[node name="UI" type="Control" parent="follow_camera/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4998.0
+offset_top = -2798.0
+offset_right = 3847.0
+offset_bottom = 2181.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="HealthBar" type="ProgressBar" parent="follow_camera/CanvasLayer/UI"]
+layout_mode = 1
+offset_left = 238.0
+offset_top = 181.0
+offset_right = 1533.0
+offset_bottom = 338.0
 rounded = true
 show_percentage = false
 script = ExtResource("6_ny1hk")

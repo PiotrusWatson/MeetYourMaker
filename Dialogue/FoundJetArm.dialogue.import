@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://cn6krhspuu4lt"
+path="res://.godot/imported/FoundJetArm.dialogue-818632fd00374ea78e51105cdcb75e5e.tres"
+
+[deps]
+
+source_file="res://Dialogue/FoundJetArm.dialogue"
+dest_files=["res://.godot/imported/FoundJetArm.dialogue-818632fd00374ea78e51105cdcb75e5e.tres"]
+
+[params]
+
+defaults=true

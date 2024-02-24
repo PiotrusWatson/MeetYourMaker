@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://b0gnb1g6rbqmx"]
+
+[ext_resource type="Script" path="res://WorldScenes/Signals.gd" id="1_22fcd"]
+[ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/Prefabs/god.tscn" id="2_q6deh"]
+[ext_resource type="PackedScene" uid="uid://c1ebx3hdak1hs" path="res://Scenes/Prefabs/player.tscn" id="3_th5y0"]
+[ext_resource type="PackedScene" uid="uid://gvojwq0l0xs7" path="res://Scenes/Placeholder/placeholder_floor.tscn" id="4_382h3"]
+[ext_resource type="PackedScene" uid="uid://dwjmfsax82oku" path="res://Scenes/Prefabs/follow_camera.tscn" id="5_h4k8i"]
+[ext_resource type="Script" path="res://WorldScenes/HealthBar.gd" id="6_rcb6r"]
+[ext_resource type="PackedScene" uid="uid://dpc0egmfche1q" path="res://Scenes/Prefabs/Powerups/gun_arm_powerup.tscn" id="7_welyf"]
+[ext_resource type="PackedScene" uid="uid://bmktuh7uf2lt6" path="res://Scenes/Prefabs/Powerups/jet_arm_powerup.tscn" id="8_tinh7"]
+[ext_resource type="PackedScene" uid="uid://crfk3jkwtky6" path="res://Scenes/Prefabs/Powerups/health_item.tscn" id="9_modvs"]
+[ext_resource type="PackedScene" uid="uid://cdotuvgx76i0v" path="res://max_health_item.tscn" id="10_qhj8w"]
+
+[sub_resource type="TileSet" id="TileSet_8uq1b"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_22fcd")
+
+[node name="God" parent="." instance=ExtResource("2_q6deh")]
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("3_th5y0")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_8uq1b")
+format = 2
+
+[node name="PlaceholderFloor" parent="." instance=ExtResource("4_382h3")]
+position = Vector2(0, 5000)
+scale = Vector2(200, 200)
+disable_mode = 1
+
+[node name="follow_camera" parent="." node_paths=PackedStringArray("thing_to_follow") instance=ExtResource("5_h4k8i")]
+thing_to_follow = NodePath("../Player")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="follow_camera"]
+follow_viewport_enabled = true
+
+[node name="UI" type="Control" parent="follow_camera/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4998.0
+offset_top = -2798.0
+offset_right = 3847.0
+offset_bottom = 2181.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HealthBar" type="ProgressBar" parent="follow_camera/CanvasLayer/UI"]
+layout_mode = 1
+offset_left = 238.0
+offset_top = 181.0
+offset_right = 1533.0
+offset_bottom = 338.0
+rounded = true
+show_percentage = false
+script = ExtResource("6_rcb6r")
+
+[node name="GunArmPowerup" parent="." instance=ExtResource("7_welyf")]
+position = Vector2(1888, 1128)
+
+[node name="JetArmPowerup" parent="." instance=ExtResource("8_tinh7")]
+position = Vector2(-1295, 1094.53)
+
+[node name="HealthItem" parent="." instance=ExtResource("9_modvs")]
+
+[node name="MaxHealthItem" parent="." instance=ExtResource("10_qhj8w")]
+position = Vector2(852.28, 2000)
