@@ -73,7 +73,8 @@ collision_layer = 128
 collision_mask = 128
 mass = 0.01
 gravity_scale = 0.0
-linear_damp = 80.0
+linear_damp = 100.0
+angular_damp = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Head/GooglyEyes/LeftPupil"]
 position = Vector2(109.17, -42)
@@ -88,7 +89,8 @@ collision_layer = 128
 collision_mask = 128
 mass = 0.01
 gravity_scale = 0.0
-linear_damp = 80.0
+linear_damp = 100.0
+angular_damp = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Head/GooglyEyes/RightPupil"]
 position = Vector2(109.17, -42)

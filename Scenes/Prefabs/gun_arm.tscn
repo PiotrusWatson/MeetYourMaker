@@ -13,24 +13,25 @@
 script = ExtResource("1_xma6y")
 
 [node name="Arm_Joint" type="PinJoint2D" parent="."]
-position = Vector2(-16.1, -108.115)
+position = Vector2(-16.1, -32.22)
 node_a = NodePath("../..")
 node_b = NodePath("../ArmSegment")
 
 [node name="ArmSegment" parent="." instance=ExtResource("2_fp233")]
 z_index = -1
 position = Vector2(-15, 110)
+rotation = -3.17301
 collision_layer = 3
 collision_mask = 3
 gravity_scale = 0.5
 
 [node name="Joint1" type="PinJoint2D" parent="."]
-position = Vector2(-2, 347)
+position = Vector2(-2, 262.035)
 node_a = NodePath("../ArmSegment")
 node_b = NodePath("../Hand")
 
 [node name="Hand" parent="." instance=ExtResource("3_0pjxa")]
-position = Vector2(-6.295, 606.73)
+position = Vector2(-6.295, 546.515)
 collision_layer = 3
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_av0cf")
