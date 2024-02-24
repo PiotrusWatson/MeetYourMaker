@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://00q3stnr7y01"]
+
+[ext_resource type="Script" path="res://Scenes/Snail/Snail.gd" id="1_1tpvc"]
+[ext_resource type="Texture2D" uid="uid://b3rs1d8fsoxj" path="res://Sprites/snail_1.png" id="2_afnqq"]
+[ext_resource type="Texture2D" uid="uid://2j21r2my1jy0" path="res://Sprites/snail_2.png" id="3_nqfso"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_klyxe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_afnqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nqfso")
+}],
+"loop": true,
+"name": &"snail_move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pumxq"]
+size = Vector2(416, 212)
+
+[sub_resource type="Curve2D" id="Curve2D_1iw4f"]
+
+[node name="Snail" type="CharacterBody2D"]
+position = Vector2(566, 232)
+collision_mask = 0
+script = ExtResource("1_1tpvc")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_klyxe")
+animation = &"snail_move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 52)
+shape = SubResource("RectangleShape2D_pumxq")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_1iw4f")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
