@@ -15,8 +15,11 @@ func _process(delta):
 	pass
 
 func shoot():
+	if !cooldown_timer.is_stopped():
+		return
 	var projectile = projectile_prefab.instantiate()
 	projectile_box.add_child(projectile)
+	cooldown_timer.start()
 	
 	
 

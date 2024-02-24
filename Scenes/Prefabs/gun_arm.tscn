@@ -1,15 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://cef5y1yl3jcfo"]
 
-[ext_resource type="Script" path="res://Scenes/Prefabs/gun_arm.gd" id="1_w0emt"]
+[ext_resource type="Script" path="res://Scripts/gun_arm.gd" id="1_xma6y"]
 [ext_resource type="PackedScene" uid="uid://dq4xekqth6v3v" path="res://Scenes/Prefabs/Variants/arm_segment.tscn" id="2_fp233"]
 [ext_resource type="PackedScene" uid="uid://cnybpoaunwx0l" path="res://Scenes/Prefabs/Variants/arm_segment_hand.tscn" id="3_0pjxa"]
 [ext_resource type="PackedScene" uid="uid://l724eee8km05" path="res://Scenes/Components/target_follower.tscn" id="4_ri6f8"]
-[ext_resource type="Script" path="res://Scenes/Prefabs/Shooter.gd" id="5_0qgju"]
+[ext_resource type="PackedScene" uid="uid://bcatkucck7slo" path="res://Scenes/Components/shooter.tscn" id="5_h6vhr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_av0cf"]
 
 [node name="GunArm" type="Node2D"]
-script = ExtResource("1_w0emt")
+script = ExtResource("1_xma6y")
 
 [node name="Arm_Joint" type="PinJoint2D" parent="."]
 position = Vector2(-16.1, -108.115)
@@ -39,9 +39,4 @@ position = Vector2(6.295, 212.27)
 
 [node name="TargetFollower" parent="." instance=ExtResource("4_ri6f8")]
 
-[node name="Shooter" type="Node2D" parent="."]
-script = ExtResource("5_0qgju")
-
-[node name="ProjectileBox" type="Node" parent="Shooter"]
-
-[node name="Cooldown" type="Timer" parent="Shooter"]
+[node name="Shooter" parent="." instance=ExtResource("5_h6vhr")]
