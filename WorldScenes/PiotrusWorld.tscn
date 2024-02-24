@@ -1,13 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dme5fnnb22w0y"]
+[gd_scene load_steps=8 format=3 uid="uid://dme5fnnb22w0y"]
 
 [ext_resource type="Script" path="res://WorldScenes/Signals.gd" id="1_byl28"]
 [ext_resource type="PackedScene" uid="uid://c1ebx3hdak1hs" path="res://Scenes/Prefabs/player.tscn" id="1_f1sax"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/god.tscn" id="1_f2xs5"]
+[ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/Prefabs/god.tscn" id="1_f2xs5"]
 [ext_resource type="PackedScene" uid="uid://gvojwq0l0xs7" path="res://Scenes/Placeholder/placeholder_floor.tscn" id="2_rsfd5"]
 [ext_resource type="PackedScene" uid="uid://dwjmfsax82oku" path="res://Scenes/Prefabs/follow_camera.tscn" id="4_ejwi2"]
-[ext_resource type="PackedScene" uid="uid://bube8rtyfyjr0" path="res://Scenes/Slime/slime.tscn" id="6_4ha73"]
 [ext_resource type="Script" path="res://WorldScenes/HealthBar.gd" id="6_ny1hk"]
-[ext_resource type="PackedScene" uid="uid://00q3stnr7y01" path="res://Scenes/Snail/snail.tscn" id="8_pi065"]
 
 [sub_resource type="TileSet" id="TileSet_8uq1b"]
 
@@ -41,8 +39,3 @@ layout_mode = 0
 offset_right = 8.0
 offset_bottom = 16.0
 script = ExtResource("6_ny1hk")
-
-[node name="Snail" parent="." instance=ExtResource("8_pi065")]
-
-[node name="Slime" parent="." instance=ExtResource("6_4ha73")]
-position = Vector2(1616, 121)
