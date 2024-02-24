@@ -43,6 +43,7 @@ offset_top = -2607.0
 offset_right = -3519.0
 offset_bottom = -2450.0
 rounded = true
+show_percentage = false
 script = ExtResource("6_ny1hk")
 
 [node name="Snail" parent="." instance=ExtResource("8_pi065")]
