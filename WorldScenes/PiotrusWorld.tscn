@@ -1,18 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://dme5fnnb22w0y"]
+[gd_scene load_steps=7 format=3 uid="uid://dme5fnnb22w0y"]
 
-[ext_resource type="Script" path="res://Scripts/Signals.gd" id="1_byl28"]
+[ext_resource type="Script" path="res://WorldScenes/Signals.gd" id="1_byl28"]
 [ext_resource type="PackedScene" uid="uid://c1ebx3hdak1hs" path="res://Scenes/Prefabs/player.tscn" id="1_f1sax"]
+[ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/Prefabs/god.tscn" id="1_f2xs5"]
 [ext_resource type="PackedScene" uid="uid://gvojwq0l0xs7" path="res://Scenes/Placeholder/placeholder_floor.tscn" id="2_rsfd5"]
 [ext_resource type="PackedScene" uid="uid://dwjmfsax82oku" path="res://Scenes/Prefabs/follow_camera.tscn" id="4_ejwi2"]
 
 [sub_resource type="TileSet" id="TileSet_8uq1b"]
 
 [node name="World" type="Node2D"]
-
-[node name="Signals" type="Node" parent="."]
 script = ExtResource("1_byl28")
 
-[node name="Player" parent="." instance=ExtResource("1_f1sax")]
+[node name="God" parent="." instance=ExtResource("1_f2xs5")]
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_f1sax")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8uq1b")

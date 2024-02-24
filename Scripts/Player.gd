@@ -6,6 +6,8 @@ extends RigidBody2D
 @onready var health = $Health
 var horizontal = 0
 
+signal dead
+
 
 func charge_jump():
 	spring_animator.visible = true
@@ -41,3 +43,7 @@ func _physics_process(delta):
 
 func _on_spring_animation_finished():
 	spring_animator.visible = false
+
+
+func _on_health_dead():
+	dead.emit()
