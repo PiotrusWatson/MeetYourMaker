@@ -31,9 +31,9 @@ func _input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	horizontal = Input.get_axis("Left", "Right")
-	arm_joint.rotate_towards_point(get_global_mouse_position(), delta)
+	arm_joint.rotate_towards_point(get_global_mouse_position())
 
-func _physics_process(deltPinJoint2Da):
+func _physics_process(delta):
 	movement.move_player(Vector2(horizontal, 0))
 
 func player():
