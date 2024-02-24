@@ -1,14 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0gnb1g6rbqmx"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://byku5ncuspyug"]
 
-[ext_resource type="Script" path="res://WorldScenes/Signals.gd" id="1_22fcd"]
-[ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/Prefabs/god.tscn" id="2_q6deh"]
-[ext_resource type="PackedScene" uid="uid://c1ebx3hdak1hs" path="res://Scenes/Prefabs/player.tscn" id="3_th5y0"]
-[ext_resource type="Texture2D" uid="uid://cc5iadsrtbgoe" path="res://Tiles/tileset.png" id="4_iiy20"]
-[ext_resource type="PackedScene" uid="uid://dwjmfsax82oku" path="res://Scenes/Prefabs/follow_camera.tscn" id="5_h4k8i"]
-[ext_resource type="Script" path="res://WorldScenes/HealthBar.gd" id="6_rcb6r"]
+[ext_resource type="Texture2D" uid="uid://cc5iadsrtbgoe" path="res://Tiles/tileset.png" id="1_kw0fw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2q1bf"]
-texture = ExtResource("4_iiy20")
+texture = ExtResource("1_kw0fw")
 texture_region_size = Vector2i(500, 500)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -91,50 +86,8 @@ texture_region_size = Vector2i(500, 500)
 5:2/0/physics_layer_0/angular_velocity = 0.0
 5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-250, -250, 250, -250, 250, 250, -250, 250)
 
-[sub_resource type="TileSet" id="TileSet_8uq1b"]
+[resource]
 tile_size = Vector2i(500, 500)
 physics_layer_0/collision_layer = 9
 physics_layer_0/collision_mask = 9
 sources/0 = SubResource("TileSetAtlasSource_2q1bf")
-
-[node name="World" type="Node2D"]
-script = ExtResource("1_22fcd")
-
-[node name="God" parent="." instance=ExtResource("2_q6deh")]
-
-[node name="Player" parent="." groups=["player"] instance=ExtResource("3_th5y0")]
-
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_8uq1b")
-format = 2
-layer_0/tile_data = PackedInt32Array(196599, 196608, 1, 196600, 196608, 1, 196601, 196608, 1, 196602, 196608, 1, 196603, 196608, 1, 196604, 196608, 1, 196605, 196608, 1, 196606, 196608, 1, 196607, 196608, 1, 131072, 196608, 1, 131073, 196608, 1, 131074, 196608, 1, 131075, 196608, 1, 131076, 196608, 1, 131077, 196608, 1, 131078, 196608, 1)
-
-[node name="follow_camera" parent="." node_paths=PackedStringArray("thing_to_follow") instance=ExtResource("5_h4k8i")]
-thing_to_follow = NodePath("../Player")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="follow_camera"]
-follow_viewport_enabled = true
-
-[node name="UI" type="Control" parent="follow_camera/CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -4998.0
-offset_top = -2798.0
-offset_right = 3847.0
-offset_bottom = 2181.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="HealthBar" type="ProgressBar" parent="follow_camera/CanvasLayer/UI"]
-layout_mode = 1
-offset_left = 238.0
-offset_top = 181.0
-offset_right = 1533.0
-offset_bottom = 338.0
-rounded = true
-show_percentage = false
-script = ExtResource("6_rcb6r")
