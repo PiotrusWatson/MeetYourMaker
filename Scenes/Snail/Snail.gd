@@ -16,6 +16,8 @@ var player
 func _ready():
 	$AnimatedSprite2D.animation = "snail_move"
 	$AnimatedSprite2D.play()
+	$SnailMoveSound.play()
+	
 
 func _physics_process(delta):
 	if dead:
@@ -35,6 +37,8 @@ func _physics_process(delta):
 	
 	if $AnimatedSprite2D.animation != "snail_death":
 		$AnimatedSprite2D.animation = "snail_move"
+	
+	
 	
 	move_and_slide()
 
@@ -62,6 +66,9 @@ func death():
 	velocity.x = 0
 	attack = false
 	dead = true
+	remove_child($PlayerCollider)
+	remove_child($CollisionShape2D)
+	
 	$AnimatedSprite2D.animation = "snail_death"
 	await $AnimatedSprite2D.animation_finished
 	queue_free()

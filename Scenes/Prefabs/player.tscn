@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1ebx3hdak1hs"]
+[gd_scene load_steps=16 format=3 uid="uid://c1ebx3hdak1hs"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_jtrst"]
 [ext_resource type="Texture2D" uid="uid://ctyw4sp2d0b0r" path="res://Sprites/robot_head_mouth_closed.png" id="2_uji0j"]
@@ -10,7 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://2g6eudh8524k" path="res://Scenes/Components/jump_handler.tscn" id="7_a76qr"]
 [ext_resource type="PackedScene" uid="uid://1nsyv04ph5ji" path="res://Scenes/Components/health.tscn" id="8_xvlnc"]
 [ext_resource type="PackedScene" path="res://Scenes/Prefabs/gun_arm.tscn" id="9_5cddh"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/jet_arm.tscn" id="11_1pjay"]
+[ext_resource type="PackedScene" uid="uid://ckbt1h3uask23" path="res://Scenes/Prefabs/jet_arm.tscn" id="11_1pjay"]
+[ext_resource type="AudioStream" uid="uid://n8kxogfh0nus" path="res://Audio/PlayerSounds/Death_Sound.ogg" id="12_4s26u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yeoou"]
 radius = 243.19
@@ -135,6 +136,9 @@ position = Vector2(0, 18.595)
 body_to_attach = NodePath("..")
 
 [node name="JetArm" parent="." instance=ExtResource("11_1pjay")]
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_4s26u")
 
 [connection signal="animation_finished" from="Spring" to="." method="_on_spring_animation_finished"]
 [connection signal="dead" from="Health" to="." method="_on_health_dead"]

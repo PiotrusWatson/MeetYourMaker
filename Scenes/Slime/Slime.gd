@@ -18,6 +18,7 @@ var player
 var attack = false
 var jump_timer = false
 var dead = false 
+var death_sound_not_played = true
 
 func _ready():
 	$AnimatedSprite2D.animation = "slime_default"
@@ -55,7 +56,7 @@ func _physics_process(delta):
 		velocity.x = 0
 	else:
 		airborne = true 
-
+		
 	move_and_slide()
 
 
@@ -96,8 +97,18 @@ func death():
 	velocity.x = 0
 	attack = false
 	dead = true
+	remove_child($PlayerCollider)
+	remove_child($CollisionShape2D)
+	
 	$AnimatedSprite2D.animation = "slime_death"
 	$AnimatedSprite2D.play()
+	$SlimeDeathSound.play()
+
 	await $AnimatedSprite2D.animation_finished
+	$AnimatedSprite2D.visible = false
+	await $SlimeDeathSound.finished
 	queue_free()
 
+
+func _on_health_hurt(health):
+	$SlimeHurtSound.play()

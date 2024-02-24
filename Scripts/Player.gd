@@ -88,6 +88,9 @@ func _on_spring_animation_finished():
 
 func _on_health_dead():
 	dead.emit()
+	$DeathSound.play()
+	await $DeathSound.finished
+	
 
 
 func _on_health_hurt(health):

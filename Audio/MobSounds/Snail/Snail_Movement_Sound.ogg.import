@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Snail_Movement_Sound.ogg-ec3fe594dd8389a737ac
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
