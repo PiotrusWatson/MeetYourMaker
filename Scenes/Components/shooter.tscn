@@ -1,10 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcatkucck7slo"]
+[gd_scene load_steps=2 format=3 uid="uid://clnj3lvwxwlhj"]
 
 [ext_resource type="Script" path="res://Scripts/Shooter.gd" id="1_fxhve"]
 
-[node name="Shooter" type="Node2D" node_paths=PackedStringArray("target_location")]
+[node name="Shooter" type="Node2D"]
 script = ExtResource("1_fxhve")
-target_location = NodePath("")
 
 [node name="ProjectileBox" type="Node" parent="."]
 

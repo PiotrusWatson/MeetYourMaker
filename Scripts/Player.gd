@@ -73,9 +73,6 @@ func _process(delta):
 func _physics_process(delta):
 	movement.move_player(Vector2(horizontal, 0))
 
-func player():
-	pass
-
 
 func charge_jump():
 	spring_animator.visible = true

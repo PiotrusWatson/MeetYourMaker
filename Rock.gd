@@ -1,18 +1,28 @@
 extends CharacterBody2D
+class_name Rock_projectile
+
+# ATTEMP AT HONING
+
+var speed := -20000
+var lifetime := 3.0
+var direction := Vector2.ZERO
+
+@onready var timer := $Timer
+@onready var sprite := $Sprite
+@onready var Hitbox := $HitBox_Rock
 
 
-
-var speed = -20000
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	set_as_top_level(true)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _physics_process(delta):
-	velocity.x = speed * delta
+	velocity.x =  speed * delta
 	move_and_slide()
+	
 	
 	
 

@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 const rockpath = preload("res://Rock.tscn")
+const damage_path= preload("res://Scripts/Health.gd")
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var damage
 const JUMP_VELOCITY = -400.0
 
 var SPEED = 40
@@ -10,7 +11,6 @@ var player_chase = false
 var player = null
 var health = 100
 var dead = true
-var damage
 var player_inacttack_zone = false
 var can_take_damage = true
 
@@ -23,13 +23,14 @@ func _physics_process(delta):
 	
 	if !dead:
 		$DetectionArea/CollisionShape2D.disabled = false
-		deal_with_damage() # This controls the golem getting hurt
-		
+		#deal_with_damage() # This controls the golem getting hurt
+		can_be_hurt()
 		# remove
 		
 		if  can_take_damage == true:
 			$AnimatedSprite2D.play('Gollem Walk')
 				
+		
 	if dead:
 		$DetectionArea/CollisionShape2D.disabled = true
 		
@@ -43,15 +44,10 @@ func apply_gravity(delta):
 
 
 
-
-		
-# fix this
-
-
-
 func _on_detection_area_body_entered(body):
 	if body.has_method("player"):
 		print("in my detect")
+		#call_deferred("throw")
 		throw()
 		# Put player throw here = true
 		player = body
@@ -60,7 +56,7 @@ func _on_detection_area_body_entered(body):
 func _on_detection_area_body_exited(body):
 	if body.has_method("player"):
 		print("out my detect")
-		# player_throw here = false
+		#player_throw here = false
 		player = null
 	
 	
@@ -86,7 +82,10 @@ func _on_hit_box_body_exited(body):
 			
 			
 	
-func deal_with_damage():
+	
+	#var health = damage_path.instantiate()
+	
+func can_be_hurt():
 	if player_inacttack_zone: # and Global.player_current_attack == true
 		if can_take_damage == true:
 			print("hurting")
@@ -95,12 +94,12 @@ func deal_with_damage():
 			print("goli", health)
 			can_take_damage = false
 		if health <= 0:
-			death()
-			
-			
+			death()	
+
 
 func death():
 	dead = true
+	print("Golemdeath")
 	#$AnimatedSprite2D.play("die")
 	#await get_tree().create_timer(1).timeout
 	queue_free()
@@ -111,7 +110,10 @@ func _on_take_damadge_timeout():
 	can_take_damage = true
 
 func throw():
+	print("throw")
 	var rock = rockpath.instantiate()
-	get_parent().add_child(rock)
-	rock.position = $ThrowRocks.global_position
+	$".".add_child(rock)
+	rock.global_position = $ThrowArea.global_position
+	
+	
 
