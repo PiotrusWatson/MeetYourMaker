@@ -29,6 +29,8 @@ func _on_body_entered(body):
 			DialogueManager.show_dialogue_balloon(load("res://Dialogue/FoundJetArm.dialogue"))
 		return
 	if body.has_method("handle_other_powerups"):
+		if powerup_type == Global.POWERUP_INDEX.MAX_HEALTH:
+			DialogueManager.show_dialogue_balloon(load("res://Dialogue/FoundMaxHealth.dialogue"))
 		body.handle_other_powerups(powerup_type, useful_amount)
 		picked_up.emit(powerup_type)
 	

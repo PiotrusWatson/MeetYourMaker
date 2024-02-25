@@ -26,7 +26,7 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity.x = speed
 	if attack:
-		player = get_node("../Player")
+		player = get_tree().get_nodes_in_group("player")[0]
 		var direction = (player.position - self.position).normalized()
 		velocity.x = direction.x * speed
 		
