@@ -11,7 +11,7 @@ radius = 76.99
 radius = 96.13
 
 [node name="Projectile" type="RigidBody2D"]
-collision_mask = 4
+collision_mask = 15
 gravity_scale = 0.0
 script = ExtResource("1_lxgwo")
 speed = 1000
@@ -27,7 +27,8 @@ disabled = true
 [node name="Mover" parent="." instance=ExtResource("3_xswti")]
 
 [node name="Hitbox" type="Area2D" parent="."]
-collision_mask = 4
+collision_layer = 9
+collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_gk336")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://t3onirt25xn5"]
+
+[ext_resource type="Script" path="res://WorldScenes/DestructibleBox.gd" id="1_68u4f"]
+[ext_resource type="Texture2D" uid="uid://dy7ubkvwma58w" path="res://Sprites/annoying_crate.png" id="2_8g30f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrkql"]
+size = Vector2(499, 498)
+
+[node name="DestructibleBox" type="StaticBody2D"]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_68u4f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8g30f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 0)
+shape = SubResource("RectangleShape2D_qrkql")

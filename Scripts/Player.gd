@@ -10,7 +10,7 @@ extends RigidBody2D
 var horizontal = 0
 var mouse_pos
 var powerup_list
-var enabled_list = [false, false]
+var enabled_list = [true, false]
 var allowed_to_move = true
 signal dead
 signal hurt(health)
@@ -105,7 +105,6 @@ func _on_health_hurt(health):
 
 
 func _on_health_healing(health):
-	print("HEY")
 	healing.emit(health)
 
 

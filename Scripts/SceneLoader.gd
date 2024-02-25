@@ -2,6 +2,7 @@ extends Node
 
 var death_scene = load("res://WorldScenes/death_scene.tscn")
 var game_scene = load("res://WorldScenes/RealWorld.tscn")
+var intro_scene = load("res://WorldScenes/dialogue_scene.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -25,3 +26,7 @@ func load_scene(scene):
 
 func _on_reload_pressed():
 	load_scene(game_scene)
+
+
+func _on_button_pressed():
+	load_scene(intro_scene)

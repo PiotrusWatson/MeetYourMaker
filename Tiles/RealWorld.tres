@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=21 format=3 uid="uid://byku5ncuspyug"]
+[gd_resource type="TileSet" load_steps=22 format=3 uid="uid://byku5ncuspyug"]
 
 [ext_resource type="Texture2D" uid="uid://cc5iadsrtbgoe" path="res://Tiles/tileset.png" id="1_kw0fw"]
 [ext_resource type="Texture2D" uid="uid://lv333dykq2qm" path="res://Assets/GreenBlocks2.png" id="2_vgjof"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dpc0egmfche1q" path="res://Scenes/Prefabs/Powerups/gun_arm_powerup.tscn" id="8_osnhe"]
 [ext_resource type="Texture2D" uid="uid://doilu86gvlf8f" path="res://Sprites/tree.png" id="9_t03u2"]
 [ext_resource type="PackedScene" uid="uid://bmktuh7uf2lt6" path="res://Scenes/Prefabs/Powerups/jet_arm_powerup.tscn" id="9_toqbj"]
+[ext_resource type="PackedScene" uid="uid://t3onirt25xn5" path="res://Scenes/Prefabs/destructible_box.tscn" id="10_am1ve"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2q1bf"]
 texture = ExtResource("1_kw0fw")
@@ -317,6 +318,7 @@ scenes/2/scene = ExtResource("6_vrmf6")
 scenes/3/scene = ExtResource("7_2f0uq")
 scenes/4/scene = ExtResource("8_osnhe")
 scenes/5/scene = ExtResource("9_toqbj")
+scenes/6/scene = ExtResource("10_am1ve")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l35eu"]
 texture = ExtResource("8_70do3")
