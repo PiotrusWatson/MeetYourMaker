@@ -60,6 +60,7 @@ animations = [{
 collision_layer = 5
 gravity_scale = 7.0
 script = ExtResource("1_jtrst")
+death_y_zone = 5000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yeoou")

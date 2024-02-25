@@ -6,7 +6,7 @@ extends RigidBody2D
 @onready var health = $Health
 @onready var arm_joint = $GunArm
 @onready var jet_arm = $JetArm
-
+@export var death_y_zone = 1500
 var horizontal = 0
 var mouse_pos
 var powerup_list
@@ -62,6 +62,8 @@ func _unhandled_input(event):
 func _process(delta):
 	horizontal = Input.get_axis("Left", "Right")
 	arm_joint.rotate_towards_point(get_global_mouse_position())
+	if global_position.y > death_y_zone:
+		_on_health_dead()
 
 func _physics_process(delta):
 	movement.move_player(Vector2(horizontal, 0))
