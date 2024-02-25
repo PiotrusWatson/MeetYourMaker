@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://but7ksissii8n"]
+[gd_scene load_steps=9 format=3 uid="uid://but7ksissii8n"]
 
 [ext_resource type="Script" path="res://WorldScenes/Signals.gd" id="1_kk40u"]
 [ext_resource type="PackedScene" uid="uid://cfi8mf6s5spby" path="res://character_body_2d.tscn" id="2_hdvqb"]
 [ext_resource type="PackedScene" uid="uid://cutkc4lf1hxrc" path="res://Scenes/Prefabs/player.tscn" id="3_4sw6v"]
 [ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/Prefabs/god.tscn" id="5_7axo0"]
-[ext_resource type="PackedScene" uid="uid://b7ejshjka1ct2" path="res://WorldScenes/death_scene.tscn" id="6_8wye5"]
 [ext_resource type="Texture2D" uid="uid://cwfo7vnl5io1x" path="res://Assets/Forest of Illusion Files/Forest of Illusion Files/back.png" id="7_3r56a"]
 [ext_resource type="TileSet" uid="uid://r8qbwros3elc" path="res://Scenes/Forestblocks.tres" id="7_btngt"]
 [ext_resource type="Texture2D" uid="uid://bke7e5tm5uoyo" path="res://Assets/Forest of Illusion Files/Forest of Illusion Files/middle.png" id="7_dib8l"]

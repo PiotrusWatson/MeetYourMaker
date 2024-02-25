@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bybnyjskhvgh"]
+[gd_scene load_steps=6 format=3 uid="uid://8ybq33r7wqfs"]
 
-[ext_resource type="Texture2D" uid="uid://co8c5xu62fajo" path="res://Assets/house-father.webp" id="1_g42ss"]
+[ext_resource type="Texture2D" path="res://Assets/house-father.webp" id="1_g42ss"]
 [ext_resource type="TileSet" uid="uid://r8qbwros3elc" path="res://Scenes/Forestblocks.tres" id="1_qdqwr"]
 [ext_resource type="Script" path="res://Scenes/Components/DetectDoor.gd" id="3_d72bp"]
 
