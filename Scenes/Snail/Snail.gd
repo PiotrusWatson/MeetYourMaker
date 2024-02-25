@@ -61,7 +61,9 @@ func _on_player_on_top_body_entered(body):
 	if body.name == "Player":
 		death()
 
-
+func damage(amount):
+	death()
+	
 func death():
 	velocity.x = 0
 	attack = false

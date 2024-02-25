@@ -46,6 +46,7 @@ size = Vector2(348, 84)
 size = Vector2(453, 147)
 
 [node name="Snail" type="CharacterBody2D"]
+collision_layer = 5
 script = ExtResource("1_1tpvc")
 metadata/_edit_group_ = true
 
