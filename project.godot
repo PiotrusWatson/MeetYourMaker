@@ -27,7 +27,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/better-terrain/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/better-terrain/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/nklbdev.parallax/plugin.cfg")
 
 [input]
 

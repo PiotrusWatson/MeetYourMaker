@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var health_bar = $CanvasLayer/HealthBar
+@onready var health_bar = $HUD/HealthBar
 @onready var player = $Player
 @onready var god = $God
 
