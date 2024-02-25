@@ -29,4 +29,5 @@ func _on_reload_pressed():
 
 
 func _on_button_pressed():
+	$MainMenuMusic.stop()
 	load_scene(intro_scene)

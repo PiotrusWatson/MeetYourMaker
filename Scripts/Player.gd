@@ -87,7 +87,9 @@ func jump():
 	jump_handler.jump()
 	
 func damage(damage):
+	$DamagedSound.play()
 	health.damage(damage)
+	
 	
 func _on_spring_animation_finished():
 	spring_animator.visible = false

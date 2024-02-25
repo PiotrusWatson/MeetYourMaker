@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Thruster_Hum_Sound.ogg-360ceccabda83c9214b928
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

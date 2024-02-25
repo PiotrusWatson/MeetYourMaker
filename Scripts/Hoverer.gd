@@ -30,11 +30,17 @@ func start_hovering():
 	hovering = true
 	stop_recharging()
 	hover_timer.start()
+	$ThrusterStart.play()
+	await $ThrusterStart.finished
+	$ThrusterHum.play()
+	
 func stop_hovering():
 	hovering = false
 	var current_time = hover_timer.time_left
 	hover_timer.stop()
 	hover_timer.wait_time = current_time
+	$ThrusterStart.stop()
+	$ThrusterHum.stop()
 	
 func start_recharging():
 	if hovering or !recharge_timer.is_stopped:
@@ -49,6 +55,8 @@ func _on_hover_time_timeout():
 	hover_timer.wait_time = max_time
 	out_of_fuel = true
 	hovering = false
+	$ThrusterStart.stop()
+	$ThrusterHum.stop()
 
 
 func _on_recharge_timer_timeout():

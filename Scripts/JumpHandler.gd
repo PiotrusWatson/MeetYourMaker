@@ -50,6 +50,7 @@ func reset_jump():
 func handle_jump():
 	if grounded:
 		player_rigidbody.apply_central_impulse(Vector2(0, -jump_strength))
+		$JumpSound.play()
 		reset_jump()
 		return true
 	return false
@@ -63,6 +64,8 @@ func _on_jump_timer_timeout():
 func _on_body_entered(body):
 	grounded = true
 	hit_ground.emit()
+	$LandingSound.play()
+	
 
 func _on_body_exited(body):
 	grounded = false

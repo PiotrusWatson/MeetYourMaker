@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dpc0egmfche1q" path="res://Scenes/Prefabs/Powerups/gun_arm_powerup.tscn" id="8_osnhe"]
 [ext_resource type="Texture2D" uid="uid://doilu86gvlf8f" path="res://Sprites/tree.png" id="9_t03u2"]
 [ext_resource type="PackedScene" uid="uid://bmktuh7uf2lt6" path="res://Scenes/Prefabs/Powerups/jet_arm_powerup.tscn" id="9_toqbj"]
-[ext_resource type="PackedScene" uid="uid://t3onirt25xn5" path="res://Scenes/Prefabs/destructible_box.tscn" id="10_am1ve"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/destructible_box.tscn" id="10_am1ve"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2q1bf"]
 texture = ExtResource("1_kw0fw")

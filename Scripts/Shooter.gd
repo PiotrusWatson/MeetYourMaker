@@ -26,6 +26,7 @@ func shoot():
 	projectile_box.add_child(projectile)
 	projectile.global_position = target_location.global_position
 	projectile.global_rotation = target_location.global_rotation
+
 	
 	if projectile.has_method("setup"):
 		projectile.setup(gun_owner)

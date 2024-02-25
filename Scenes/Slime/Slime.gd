@@ -83,8 +83,13 @@ func _on_jump_cooldown_timeout():
 func _on_player_on_top_body_entered(body):
 	if body.name == "Player":
 		death()
+	if body.name == "Projectile":
+		damage(body.damage)
+
 func damage(amount):
-	death()
+	$SlimeHurtSound.play()
+	$Health.damage(amount)
+	
 
 func _on_player_collider_body_entered(body):
 	if body.name == "Player":

@@ -38,20 +38,23 @@ func _physics_process(delta):
 	if $AnimatedSprite2D.animation != "snail_death":
 		$AnimatedSprite2D.animation = "snail_move"
 	
-	
-	
 	move_and_slide()
 
 
 func _on_player_detect_body_entered(body):	
 	if body.name == "Player":
 		attack = true
-
+	if body.name == "Projectile":
+		damage(body.damage)
 
 func _on_player_detect_body_exited(body):
 	if body.name == "Player":
 		attack = false
 
+
+func damage(amount):
+	$SnailDamagedSound.play()
+	$Health.damage(amount)
 
 func _on_health_dead():
 	death()
@@ -61,8 +64,6 @@ func _on_player_on_top_body_entered(body):
 	if body.name == "Player":
 		death()
 
-func damage(amount):
-	death()
 	
 func death():
 	velocity.x = 0
@@ -72,7 +73,12 @@ func death():
 	remove_child($CollisionShape2D)
 	
 	$AnimatedSprite2D.animation = "snail_death"
+	$AnimatedSprite2D.play()
+	$SnailDeathSound.play()
+
 	await $AnimatedSprite2D.animation_finished
+	$AnimatedSprite2D.visible = false
+	await $SnailDeathSound.finished
 	queue_free()
 
 func _on_player_collider_body_entered(body):

@@ -2,7 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://b4ivw6x6l2fi4"
+uid="uid://o7s07a1vrw45"
 path="res://.godot/imported/Dandys_Theme_Complete_Bounce.ogg-a3863bf35babb9a2d4c16effd1ef69d1.oggvorbisstr"
 
 [deps]
@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Dandys_Theme_Complete_Bounce.ogg-a3863bf35bab
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
