@@ -32,7 +32,8 @@ func _process(delta):
 		if handle_jump():
 			reset_jump()
 		buffer_frames += 1
-		
+	else:
+		reset_jump()
 	
 func increment_jump():
 	if jump_strength <= jump_strength_max:

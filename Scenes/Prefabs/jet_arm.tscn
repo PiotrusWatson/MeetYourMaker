@@ -23,6 +23,8 @@ position = Vector2(-2, 399.47)
 gravity_scale = 1.0
 
 [node name="JetHand" parent="." instance=ExtResource("4_aeep0")]
+collision_layer = 3
+collision_mask = 3
 
 [node name="GroundedChecker" parent="JetHand" instance=ExtResource("5_cvmeq")]
 collision_mask = 8

@@ -127,6 +127,7 @@ sprite_frames = SubResource("SpriteFrames_muur5")
 animation = &"uncoil"
 
 [node name="JumpHandler" parent="." instance=ExtResource("7_a76qr")]
+collision_mask = 8
 
 [node name="Health" parent="." instance=ExtResource("8_xvlnc")]
 
