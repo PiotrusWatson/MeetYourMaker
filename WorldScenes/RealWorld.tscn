@@ -62,6 +62,9 @@ autostart = true
 script = ExtResource("7_fiqqx")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(0, -200)
+scale = Vector2(1.4, 1.4)
+transform = Transform2D(1.4, 0, 0, 1.4, 0, -200)
 
 [node name="Furthest" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(10000, 0)
@@ -72,6 +75,7 @@ centered = false
 
 [node name="Further" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.7, 0.7)
+motion_offset = Vector2(0, -20)
 motion_mirroring = Vector2(10000, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Further"]

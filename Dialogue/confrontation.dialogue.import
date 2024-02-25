@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://c5klgni3iyy4e"
+path="res://.godot/imported/confrontation.dialogue-8f4e79f9b7b2e0ee29c347fad0793f89.tres"
+
+[deps]
+
+source_file="res://Dialogue/confrontation.dialogue"
+dest_files=["res://.godot/imported/confrontation.dialogue-8f4e79f9b7b2e0ee29c347fad0793f89.tres"]
+
+[params]
+
+defaults=true
