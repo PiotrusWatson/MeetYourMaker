@@ -10,7 +10,7 @@ extends RigidBody2D
 var horizontal = 0
 var mouse_pos
 var powerup_list
-var enabled_list = [true, false]
+var enabled_list = [false, false]
 var allowed_to_move = true
 signal dead
 signal hurt(health)

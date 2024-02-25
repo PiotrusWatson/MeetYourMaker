@@ -8,6 +8,7 @@
 script = ExtResource("2_2cjx6")
 
 [node name="PickupManager" parent="." index="7" instance=ExtResource("3_jenxk")]
+collision_mask = 15
 powerup_type = 1
 
 [connection signal="picked_up" from="PickupManager" to="." method="_on_pickup_manager_picked_up"]
