@@ -20,7 +20,6 @@ func _physics_process(delta):
 func _on_hitbox_body_entered(body):
 	if body != parent and body.has_method("damage"):
 		body.damage(damage)
-	print(body)
 	if body != parent and body.has_method("destroy_crate"):
 		body.destroy_crate()
 	queue_free()

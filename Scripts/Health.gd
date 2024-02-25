@@ -12,7 +12,6 @@ signal max_health_increase(health)
 func _ready():
 	health = max_health
 	await get_tree().create_timer(1.0).timeout
-	print("hey lol")
 	healing.emit(health)
 
 
@@ -35,7 +34,6 @@ func heal(amount):
 func damage(damage):
 	health -= damage
 	hurt.emit(health)
-	print(health)
 	if health <= 0:
 		dead.emit()
 		print("dead")
