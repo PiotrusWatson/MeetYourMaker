@@ -10,7 +10,7 @@ position = Vector2(0, 200)
 script = ExtResource("1_81831")
 jump_strength_min = 1000
 jump_strength_max = 10000
-jump_strength_increment = 500
+jump_strength_increment = 1000
 
 [node name="GroundedChecker" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4xkau")

@@ -78,14 +78,14 @@ texture = ExtResource("2_uji0j")
 [node name="GooglyEyes" type="Node" parent="Head"]
 
 [node name="LeftPupil" type="RigidBody2D" parent="Head/GooglyEyes"]
-position = Vector2(-112.615, 0)
+position = Vector2(-112.615, -71.715)
 collision_layer = 128
 collision_mask = 128
 mass = 0.01
 physics_material_override = SubResource("PhysicsMaterial_g8w1e")
 gravity_scale = 0.0
-linear_damp = 60.0
-angular_damp = 60.0
+linear_damp = 18.172
+angular_damp = 16.131
 
 [node name="Sprite2D" type="Sprite2D" parent="Head/GooglyEyes/LeftPupil"]
 position = Vector2(109.17, -42)
@@ -95,14 +95,14 @@ texture = ExtResource("3_1y4si")
 shape = SubResource("CircleShape2D_vthxm")
 
 [node name="RightPupil" type="RigidBody2D" parent="Head/GooglyEyes"]
-position = Vector2(105.685, 0)
+position = Vector2(105.685, -69.145)
 collision_layer = 128
 collision_mask = 128
 mass = 0.01
 physics_material_override = SubResource("PhysicsMaterial_acg7p")
 gravity_scale = 0.0
-linear_damp = 60.0
-angular_damp = 60.0
+linear_damp = 16.131
+angular_damp = 12.991
 
 [node name="Sprite2D" type="Sprite2D" parent="Head/GooglyEyes/RightPupil"]
 position = Vector2(109.17, -42)
@@ -111,21 +111,17 @@ texture = ExtResource("3_1y4si")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head/GooglyEyes/RightPupil"]
 shape = SubResource("CircleShape2D_vthxm")
 
-[node name="LeftEye" type="DampedSpringJoint2D" parent="Head/GooglyEyes"]
-position = Vector2(-112.85, 0)
+[node name="LeftSocket" type="PinJoint2D" parent="Head/GooglyEyes"]
+position = Vector2(-109.415, 0)
 node_a = NodePath("../../..")
 node_b = NodePath("../LeftPupil")
-bias = 0.703
-length = 1.0
-stiffness = 40.0
+bias = 0.9
 
-[node name="RightEye" type="DampedSpringJoint2D" parent="Head/GooglyEyes"]
-position = Vector2(105.605, 0)
+[node name="RightSocket" type="PinJoint2D" parent="Head/GooglyEyes"]
+position = Vector2(102.07, 0)
 node_a = NodePath("../../..")
 node_b = NodePath("../RightPupil")
-bias = 0.677
-length = 1.0
-stiffness = 40.0
+bias = 0.9
 
 [node name="Mover" parent="." instance=ExtResource("3_7r6qc")]
 
