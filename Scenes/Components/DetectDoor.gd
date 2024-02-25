@@ -11,18 +11,16 @@ func _ready():
 func _process(delta):
 	if entered == true:
 		if Input.is_action_just_pressed("ui_accept"):
-		#get_tree().change_scene("")
+			get_tree().change_scene_to_file("res://Scenes/Components/divorce_battle.tscn")
 			pass
 		
 
 func _on_body_entered(body: PhysicsBody2D):
 	entered = true
-	if Input.is_action_just_pressed("ui_accept"):
-		get_tree().change_scene("")
 		
-	
-	pass # Replace with function body.
+
 
 
 func _on_body_exited(body: PhysicsBody2D):
-	pass # Replace with function body.
+	entered = false
+	

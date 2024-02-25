@@ -17,7 +17,9 @@ signal hurt(health)
 signal healing(health)
 signal max_health_increased(health)
 
-
+func player():
+	pass
+	
 
 func _ready():
 	movement.init(self)
@@ -113,3 +115,6 @@ func make_allowed_to_move(stuff):
 	allowed_to_move = true
 func disallow_to_move(stuff):
 	allowed_to_move = false
+
+
+	

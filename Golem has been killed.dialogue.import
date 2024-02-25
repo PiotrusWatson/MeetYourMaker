@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://celjblh2xom0w"
+path="res://.godot/imported/Golem has been killed.dialogue-5923b97d308215854f87eacb114aafa7.tres"
+
+[deps]
+
+source_file="res://Golem has been killed.dialogue"
+dest_files=["res://.godot/imported/Golem has been killed.dialogue-5923b97d308215854f87eacb114aafa7.tres"]
+
+[params]
+
+defaults=true

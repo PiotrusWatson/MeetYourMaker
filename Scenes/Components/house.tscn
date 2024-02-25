@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://8ybq33r7wqfs"]
+[gd_scene load_steps=10 format=3 uid="uid://8ybq33r7wqfs"]
 
-[ext_resource type="Texture2D" path="res://Assets/house-father.webp" id="1_g42ss"]
+[ext_resource type="Texture2D" uid="uid://co8c5xu62fajo" path="res://Assets/house-father.webp" id="1_g42ss"]
 [ext_resource type="TileSet" uid="uid://r8qbwros3elc" path="res://Scenes/Forestblocks.tres" id="1_qdqwr"]
 [ext_resource type="Script" path="res://Scenes/Components/DetectDoor.gd" id="3_d72bp"]
+[ext_resource type="PackedScene" uid="uid://c6ysmg6uabiph" path="res://boss_golem.tscn" id="4_e8h5g"]
+[ext_resource type="PackedScene" uid="uid://c1ebx3hdak1hs" path="res://Scenes/Prefabs/player.tscn" id="5_avpbu"]
+[ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/Prefabs/god.tscn" id="6_8f2es"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/follow_camera.tscn" id="7_psnj5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqygf"]
 size = Vector2(374.5, 485)
@@ -27,7 +31,7 @@ shape = SubResource("RectangleShape2D_wqygf")
 position = Vector2(0, 1)
 tile_set = ExtResource("1_qdqwr")
 format = 2
-layer_0/tile_data = PackedInt32Array(65534, 0, 0, 65535, 65536, 0, 0, 65536, 0, 1, 131072, 0)
+layer_0/tile_data = PackedInt32Array(65534, 65538, 0, 65535, 65538, 0, 0, 65538, 0, 1, 131074, 0, 65533, 65538, 0, 65532, 65538, 0, 65531, 65538, 0, 65530, 65538, 0, 65529, 65538, 0, 65528, 65538, 0, 65527, 65538, 0, 65526, 65538, 0, 65525, 65538, 0, 65501, 65536, 1, 65502, 65536, 1, -65569, 131074, 0, 65503, 65536, 1, 65504, 65536, 1, 65505, 65538, 0, 65506, 65538, 0, 65507, 65538, 0, 65494, 65538, 0, 65495, 65538, 0, -65576, 2, 0, 65496, 65536, 1, -65575, 65538, 0, 65497, 65536, 1, -65574, 131074, 0, 65498, 65536, 1, -196645, 2, 0, 65499, 65536, 1, -196644, 65538, 0, 65500, 65536, 1, -196643, 131074, 0, -131106, 131074, 0, -32, 131074, 0, -40, 0, 1, -131109, 0, 1, -35, 65536, 1, -39, 65536, 1, -38, 65536, 1, -37, 65536, 1, -65573, 65536, 1, -36, 65536, 1, -65572, 65536, 1, -131108, 65536, 1, -65571, 65536, 1, -131107, 65536, 1, -65570, 65536, 1, -34, 65536, 1, -33, 65536, 1, 65493, 65538, 0, 65492, 65538, 0, 65491, 65538, 0, 65490, 65538, 0, 65489, 65538, 0, 65488, 65538, 0, 65487, 65538, 0, 65486, 65538, 0, 65485, 65538, 0, 65484, 65538, 0, 65483, 65538, 0, 65482, 65538, 0, 65481, 65538, 0, 65480, 65538, 0, 65479, 65538, 0, 65478, 65538, 0, 65477, 2, 0, 131014, 65536, 2, 131015, 65536, 2, 131016, 65536, 2, 131017, 65536, 2, 131018, 65536, 2, 131019, 65536, 2, 131020, 65536, 2, 131021, 65536, 2, 131022, 65536, 2, 131023, 65536, 2, 131024, 65536, 2, 131025, 65536, 2, 131026, 65536, 2, 131027, 65536, 2, 131028, 65536, 2, 131029, 65536, 2, 131030, 65536, 2, 131031, 65536, 2, 131032, 65536, 2, 131033, 65536, 2, 131034, 65536, 2, 131035, 65536, 2, 131036, 65536, 2, 131037, 65536, 2, 131038, 65536, 2, 131039, 65536, 2, 131040, 65536, 2, 131041, 65536, 2, 131042, 65536, 2, 131043, 65536, 2, 131013, 0, 2, 65508, 65538, 0, 65509, 65538, 0, 65510, 65538, 0, 65511, 65538, 0, 65512, 65538, 0, 65513, 65538, 0, 65514, 65538, 0, 65515, 65538, 0, 65516, 65538, 0, 65517, 65538, 0, 65518, 65538, 0, 65519, 65538, 0, 65520, 65538, 0, 65521, 65538, 0, 65522, 65538, 0, 65523, 65538, 0, 65524, 65538, 0, 131044, 65536, 2, 131045, 65536, 2, 131046, 65536, 2, 131047, 65536, 2, 131048, 65536, 2, 131049, 65536, 2, 131051, 65536, 2, 131050, 65536, 2, 131052, 65536, 2, 131053, 65536, 2, 131054, 65536, 2, 131055, 65536, 2, 131056, 65536, 2, 131057, 65536, 2, 131058, 65536, 2, 131059, 65536, 2, 131060, 65536, 2, 131061, 65536, 2, 131062, 65536, 2, 131063, 65536, 2, 131064, 65536, 2, 131065, 65536, 2, 131066, 65536, 2, 131067, 65536, 2, 131068, 65536, 2, 131069, 65536, 2, 131070, 65536, 2, 131071, 65536, 2, 65536, 65536, 2, 65537, 131072, 2)
 
 [node name="DetectDoor" type="Area2D" parent="."]
 script = ExtResource("3_d72bp")
@@ -35,6 +39,23 @@ script = ExtResource("3_d72bp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectDoor"]
 position = Vector2(574, -134)
 shape = SubResource("CapsuleShape2D_w2jwg")
+
+[node name="Boss Golem" parent="." instance=ExtResource("4_e8h5g")]
+position = Vector2(-7241, -355)
+scale = Vector2(0.5, 0.5)
+
+[node name="Player" parent="." instance=ExtResource("5_avpbu")]
+position = Vector2(-26122, -524)
+scale = Vector2(0.5, 0.5)
+
+[node name="God" parent="." instance=ExtResource("6_8f2es")]
+
+[node name="Camera2D" parent="." node_paths=PackedStringArray("thing_to_follow") instance=ExtResource("7_psnj5")]
+thing_to_follow = NodePath("../Player")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [connection signal="body_entered" from="DetectDoor" to="DetectDoor" method="_on_body_entered"]
 [connection signal="body_exited" from="DetectDoor" to="DetectDoor" method="_on_body_exited"]

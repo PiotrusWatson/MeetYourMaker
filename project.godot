@@ -63,8 +63,4 @@ Hover={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogue/FoundItem.dialogue", "res://Dialogue/FoundJetArm.dialogue", "res://Dialogue/FoundMaxHealth.dialogue", "res://Dialogue/IntroCrawl.dialogue", "res://Dialogue/ControlExplanation.dialogue", "res://Dialogue/confrontation.dialogue")
-
-[rendering]
-
-environment/defaults/default_clear_color=Color(0.196078, 0.619608, 0.631373, 1)
+locale/translations_pot_files=PackedStringArray("res://Dialogue/FoundItem.dialogue", "res://Dialogue/FoundJetArm.dialogue", "res://Dialogue/FoundMaxHealth.dialogue", "res://Dialogue/IntroCrawl.dialogue", "res://Dialogue/ControlExplanation.dialogue", "res://Dialogue/confrontation.dialogue", "res://Father Fight.dialogue", "res://Golem has been killed.dialogue", "res://Snail has been killed.dialogue")

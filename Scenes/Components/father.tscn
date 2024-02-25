@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://chltn27ui8xiq"]
 
 [ext_resource type="Script" path="res://Father.gd" id="1_m6gp0"]
-[ext_resource type="Texture2D" path="res://Assets/Father_Fullbody.png.webp" id="2_31o4y"]
+[ext_resource type="Texture2D" uid="uid://ofnpwwsur5io" path="res://Assets/Father_Fullbody.png.webp" id="2_31o4y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3c0xm"]
 

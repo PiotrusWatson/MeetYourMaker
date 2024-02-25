@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://cnudbu6b2ppcd"
+path="res://.godot/imported/Father Fight.dialogue-7a85689a3735c775ebf411b9ba8c2a37.tres"
+
+[deps]
+
+source_file="res://Father Fight.dialogue"
+dest_files=["res://.godot/imported/Father Fight.dialogue-7a85689a3735c775ebf411b9ba8c2a37.tres"]
+
+[params]
+
+defaults=true

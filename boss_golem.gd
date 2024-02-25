@@ -27,7 +27,7 @@ func _physics_process(delta):
 		# remove
 		
 		if  can_take_damage == true:
-			$AnimatedSprite2D.play('Gollem Walk')
+			$AnimatedSprite2D.play('Idle')
 				
 		
 	if dead:
@@ -43,11 +43,10 @@ func apply_gravity(delta):
 
 
 func _on_detection_area_body_entered(body):
-	print("in my area")
-	#if body.has_method("player"):
-	print("in my detect")
-	player = body
-	throw()
+	if body.has_method("player"):
+		player = body
+		print("in my detect")
+		call_deferred("throw")
 		# Put player throw here = true
 		
 
@@ -112,7 +111,3 @@ func throw():
 	rock.global_position = $ThrowArea.global_position
 	
 	
-
-
-
-

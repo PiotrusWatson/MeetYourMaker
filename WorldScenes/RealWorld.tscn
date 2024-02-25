@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0gnb1g6rbqmx"]
+[gd_scene load_steps=12 format=3 uid="uid://bawm6joob1jm4"]
 
 [ext_resource type="Script" path="res://WorldScenes/Signals.gd" id="1_22fcd"]
 [ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/Prefabs/god.tscn" id="2_q6deh"]
 [ext_resource type="PackedScene" uid="uid://c1ebx3hdak1hs" path="res://Scenes/Prefabs/player.tscn" id="3_th5y0"]
 [ext_resource type="TileSet" uid="uid://byku5ncuspyug" path="res://Tiles/RealWorld.tres" id="4_427e5"]
-[ext_resource type="PackedScene" uid="uid://dwjmfsax82oku" path="res://Scenes/Prefabs/follow_camera.tscn" id="5_h4k8i"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/follow_camera.tscn" id="5_h4k8i"]
 [ext_resource type="Script" path="res://WorldScenes/HealthBar.gd" id="6_rcb6r"]
 [ext_resource type="Script" path="res://WorldScenes/TutorialDialogueSpitter.gd" id="7_fiqqx"]
 [ext_resource type="Texture2D" uid="uid://ca7uej70vt3u4" path="res://Sprites/background3.png" id="9_ypxbr"]
 [ext_resource type="Texture2D" uid="uid://b8em5tek0onod" path="res://Sprites/background1.png" id="10_np76u"]
 [ext_resource type="Texture2D" uid="uid://bnqq4q0uj4veq" path="res://Sprites/background2.png" id="10_yh68d"]
+[ext_resource type="PackedScene" uid="uid://cfi8mf6s5spby" path="res://character_body_2d.tscn" id="11_ticvw"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_22fcd")
@@ -89,5 +90,8 @@ motion_mirroring = Vector2(10000, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Closest"]
 texture = ExtResource("10_np76u")
 centered = false
+
+[node name="Golem" parent="." instance=ExtResource("11_ticvw")]
+position = Vector2(-882, -2953)
 
 [connection signal="timeout" from="TutorialDialogueSpitter" to="TutorialDialogueSpitter" method="_on_timeout"]

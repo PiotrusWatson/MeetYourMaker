@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://bocfbs0hymo15"
+path="res://.godot/imported/Snail has been killed.dialogue-aa933aaf1c3f1699381b4a1193870151.tres"
+
+[deps]
+
+source_file="res://Snail has been killed.dialogue"
+dest_files=["res://.godot/imported/Snail has been killed.dialogue-aa933aaf1c3f1699381b4a1193870151.tres"]
+
+[params]
+
+defaults=true
