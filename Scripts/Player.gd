@@ -13,7 +13,8 @@ var powerup_list
 var enabled_list = [false, false]
 signal dead
 signal hurt(health)
-signal healing
+signal healing(health)
+signal max_health_increased(health)
 
 
 
@@ -24,6 +25,7 @@ func _ready():
 	powerup_list = [arm_joint, jet_arm]
 	for i in range(len(powerup_list)):
 		powerup_list[i].visible = enabled_list[i]
+	
 	
 
 func handle_other_powerups(index: Global.POWERUP_INDEX, useful_amount):
@@ -38,7 +40,7 @@ func enable_function(index: Global.POWERUP_INDEX):
 
 func heal(amount):
 	health.heal(amount)
-	healing.emit()
+	
 	
 	
 func _unhandled_input(event):
@@ -97,3 +99,12 @@ func _on_health_dead():
 
 func _on_health_hurt(health):
 	hurt.emit(health)
+
+
+func _on_health_healing(health):
+	print("HEY")
+	healing.emit(health)
+
+
+func _on_health_max_health_increase(health):
+	max_health_increased.emit(health)

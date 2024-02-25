@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1ebx3hdak1hs"]
+[gd_scene load_steps=18 format=3 uid="uid://c1ebx3hdak1hs"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_jtrst"]
 [ext_resource type="Texture2D" uid="uid://ctyw4sp2d0b0r" path="res://Sprites/robot_head_mouth_closed.png" id="2_uji0j"]
@@ -16,8 +16,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_yeoou"]
 radius = 243.19
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g8w1e"]
+friction = 400.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_vthxm"]
 radius = 30.28
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_acg7p"]
+friction = 400.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_muur5"]
 animations = [{
@@ -76,6 +82,7 @@ position = Vector2(-112.615, 0)
 collision_layer = 128
 collision_mask = 128
 mass = 0.01
+physics_material_override = SubResource("PhysicsMaterial_g8w1e")
 gravity_scale = 0.0
 linear_damp = 60.0
 angular_damp = 60.0
@@ -92,6 +99,7 @@ position = Vector2(105.685, 0)
 collision_layer = 128
 collision_mask = 128
 mass = 0.01
+physics_material_override = SubResource("PhysicsMaterial_acg7p")
 gravity_scale = 0.0
 linear_damp = 60.0
 angular_damp = 60.0
@@ -145,4 +153,6 @@ stream = ExtResource("12_4s26u")
 
 [connection signal="animation_finished" from="Spring" to="." method="_on_spring_animation_finished"]
 [connection signal="dead" from="Health" to="." method="_on_health_dead"]
+[connection signal="healing" from="Health" to="." method="_on_health_healing"]
 [connection signal="hurt" from="Health" to="." method="_on_health_hurt"]
+[connection signal="max_health_increase" from="Health" to="." method="_on_health_max_health_increase"]
