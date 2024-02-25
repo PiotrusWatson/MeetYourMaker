@@ -45,7 +45,7 @@ func _physics_process(delta):
 				get_node("StartJumpTimer").start(start_jump_timer)
 				start_start_jump_timer = false
 		else:
-			player = get_node("../Player")
+			player =get_tree().get_nodes_in_group("player")[0]
 			var direction = (player.position - self.position).normalized()
 			velocity.y += jump_speed
 			velocity.x = direction.x * speed
