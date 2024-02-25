@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dn0mddfh2wie2"]
 
 [ext_resource type="Script" path="res://WorldScenes/Projectile.gd" id="1_lxgwo"]
-[ext_resource type="Texture2D" uid="uid://4tlf6mlal8t3" path="res://Assets/StarShapedProjectile.png" id="2_fi2dm"]
+[ext_resource type="Texture2D" uid="uid://rqqgk4c6hqpt" path="res://Sprites/projectile.png" id="2_4rblp"]
 [ext_resource type="PackedScene" uid="uid://ct5vrvfvxdknu" path="res://Scenes/Components/mover.tscn" id="3_xswti"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xbmt4"]
@@ -18,7 +18,7 @@ speed = 1000
 
 [node name="Image" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_fi2dm")
+texture = ExtResource("2_4rblp")
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xbmt4")

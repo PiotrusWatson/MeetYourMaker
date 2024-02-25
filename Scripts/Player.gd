@@ -11,6 +11,7 @@ var horizontal = 0
 var mouse_pos
 var powerup_list
 var enabled_list = [false, false]
+var allowed_to_move = true
 signal dead
 signal hurt(health)
 signal healing(health)
@@ -62,6 +63,8 @@ func _unhandled_input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if !allowed_to_move:
+		return
 	horizontal = Input.get_axis("Left", "Right")
 	arm_joint.rotate_towards_point(get_global_mouse_position())
 	if global_position.y > death_y_zone:
@@ -108,3 +111,8 @@ func _on_health_healing(health):
 
 func _on_health_max_health_increase(health):
 	max_health_increased.emit(health)
+
+func make_allowed_to_move(stuff):
+	allowed_to_move = true
+func disallow_to_move(stuff):
+	allowed_to_move = false
