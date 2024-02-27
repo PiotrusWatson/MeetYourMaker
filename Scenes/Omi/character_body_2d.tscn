@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cfi8mf6s5spby"]
 
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_tv6qf"]
+[ext_resource type="Script" path="res://Scripts/CharacterBody2D.gd" id="1_tv6qf"]
 [ext_resource type="Texture2D" uid="uid://bfpa7btc36bd2" path="res://Assets/goru_walk.png" id="2_mhedp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sbe8g"]

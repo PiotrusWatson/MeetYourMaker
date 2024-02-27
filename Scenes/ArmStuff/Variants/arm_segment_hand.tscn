@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnybpoaunwx0l"]
 
-[ext_resource type="PackedScene" uid="uid://dq4xekqth6v3v" path="res://Scenes/Prefabs/Variants/arm_segment.tscn" id="1_qykkq"]
+[ext_resource type="PackedScene" uid="uid://dq4xekqth6v3v" path="res://Scenes/ArmStuff/Variants/arm_segment.tscn" id="1_qykkq"]
 [ext_resource type="Texture2D" uid="uid://28n5e8tjybob" path="res://Sprites/robot_joint.png" id="2_jclmu"]
 [ext_resource type="Texture2D" uid="uid://bf45q8nfanu4c" path="res://Sprites/robot_gun_point.png" id="3_rv364"]
 

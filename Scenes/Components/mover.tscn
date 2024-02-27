@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ct5vrvfvxdknu"]
 
-[ext_resource type="Script" path="res://Scripts/BasicPlayerMovement.gd" id="1_xifi5"]
+[ext_resource type="Script" path="res://Scripts/Components/BasicPlayerMovement.gd" id="1_xifi5"]
 
 [node name="BasicPlayerMovement" type="Node2D"]
 script = ExtResource("1_xifi5")

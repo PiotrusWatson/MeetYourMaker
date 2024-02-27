@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bj344ll3wiegc"]
 
-[ext_resource type="Script" path="res://dialogue_scene.gd" id="1_ntxfv"]
+[ext_resource type="Script" path="res://Scripts/dialogue_scene.gd" id="1_ntxfv"]
 
 [node name="dialogueScene" type="Control"]
 layout_mode = 3

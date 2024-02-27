@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfuatvgma7v6k"]
 
-[ext_resource type="PackedScene" uid="uid://cnybpoaunwx0l" path="res://Scenes/Prefabs/Variants/arm_segment_hand.tscn" id="1_jnf6n"]
+[ext_resource type="PackedScene" uid="uid://cnybpoaunwx0l" path="res://Scenes/ArmStuff/Variants/arm_segment_hand.tscn" id="1_jnf6n"]
 [ext_resource type="Texture2D" uid="uid://hsduse0lkvsh" path="res://Sprites/robot_jet_sprite.png" id="2_vep5w"]
 
 [node name="ArmSegment" instance=ExtResource("1_jnf6n")]

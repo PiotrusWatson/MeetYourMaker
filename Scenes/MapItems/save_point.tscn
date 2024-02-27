@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://070ybkjica4d"]
 
-[ext_resource type="Script" path="res://WorldScenes/SavePoint.gd" id="1_853rr"]
+[ext_resource type="Script" path="res://Scripts/SavePoint.gd" id="1_853rr"]
 [ext_resource type="Texture2D" uid="uid://bg5fvelri83ma" path="res://Sprites/golem_head.png" id="2_ywtjy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m3umx"]

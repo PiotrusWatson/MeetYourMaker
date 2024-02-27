@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="./Layer_0_0.tscn" id="0"]
+
+[node name="map" type="Node2D"]
+[node name="Layer_0_0" parent="." instance=ExtResource( 0 )]

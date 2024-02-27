@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtsew4ndx3fk5"]
+[gd_scene load_steps=4 format=3 uid="uid://dtsew4ndx3fk5"]
 
 [ext_resource type="Texture2D" uid="uid://b8ad0m8100myv" path="res://Sprites/game_logo.png" id="1_oks5s"]
 [ext_resource type="FontFile" uid="uid://ckpbcif48sqjf" path="res://Fonts/Comic Papyrus.ttf" id="2_li0oe"]
-[ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/Prefabs/god.tscn" id="3_ie5x7"]
-[ext_resource type="AudioStream" uid="uid://ca4lhfnatkrig" path="res://Audio/Music/Main_Title_Theme.ogg" id="4_5ikv7"]
+[ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/god.tscn" id="3_ie5x7"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -46,10 +45,5 @@ theme_override_font_sizes/font_size = 22
 text = "PLAY"
 
 [node name="God" parent="." instance=ExtResource("3_ie5x7")]
-
-[node name="MainMenuMusic" type="AudioStreamPlayer" parent="God"]
-stream = ExtResource("4_5ikv7")
-volume_db = -2.82
-autoplay = true
 
 [connection signal="pressed" from="Button" to="God" method="_on_button_pressed"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://brv1ks0h8xi82"]
 
 [ext_resource type="Script" path="res://Scripts/Dandelion.gd" id="1_y51t1"]
-[ext_resource type="PackedScene" uid="uid://b602cxlk6hh0d" path="res://Scenes/Prefabs/Dandelion/stem.tscn" id="2_mtjis"]
-[ext_resource type="PackedScene" uid="uid://du21ih3do1tdk" path="res://Scenes/Prefabs/Dandelion/head.tscn" id="3_fnyf2"]
-[ext_resource type="PackedScene" uid="uid://c7yu0awuxd188" path="res://Scenes/Prefabs/leaf.tscn" id="4_0ak50"]
-[ext_resource type="PackedScene" uid="uid://cn7q1jrmxw45r" path="res://Scenes/Prefabs/Dandelion/leaf_right.tscn" id="5_4fp31"]
+[ext_resource type="PackedScene" uid="uid://b602cxlk6hh0d" path="res://Scenes/Dandelion/stem.tscn" id="2_mtjis"]
+[ext_resource type="PackedScene" uid="uid://du21ih3do1tdk" path="res://Scenes/Dandelion/head.tscn" id="3_fnyf2"]
+[ext_resource type="PackedScene" uid="uid://c7yu0awuxd188" path="res://Scenes/Dandelion/leaf.tscn" id="4_0ak50"]
+[ext_resource type="PackedScene" uid="uid://cn7q1jrmxw45r" path="res://Scenes/Dandelion/leaf_right.tscn" id="5_4fp31"]
 
 [node name="Dandelion" type="Node2D"]
 position = Vector2(0, -431.535)

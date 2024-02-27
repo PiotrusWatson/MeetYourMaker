@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cn7q1jrmxw45r"]
 
-[ext_resource type="PackedScene" uid="uid://c7yu0awuxd188" path="res://Scenes/Prefabs/leaf.tscn" id="1_cq4dk"]
+[ext_resource type="PackedScene" uid="uid://c7yu0awuxd188" path="res://Scenes/Dandelion/leaf.tscn" id="1_cq4dk"]
 
 [node name="Leaf" instance=ExtResource("1_cq4dk")]
 

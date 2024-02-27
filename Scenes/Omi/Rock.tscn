@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://x1j2tobpybon"]
 
-[ext_resource type="Script" path="res://Rock.gd" id="1_kn045"]
+[ext_resource type="Script" path="res://Scripts/Rock.gd" id="1_kn045"]
 [ext_resource type="Texture2D" uid="uid://huy800313r7c" path="res://Assets/Heart states.png" id="2_50npx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vjaxd"]

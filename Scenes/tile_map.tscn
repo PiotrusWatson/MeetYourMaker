@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://2vt1grsmqxve"]
 
 [ext_resource type="TileSet" uid="uid://byku5ncuspyug" path="res://Tiles/RealWorld.tres" id="1_in2q7"]
-[ext_resource type="PackedScene" uid="uid://cdotuvgx76i0v" path="res://Scenes/Prefabs/Powerups/max_health_item.tscn" id="2_ac6no"]
-[ext_resource type="PackedScene" uid="uid://dpc0egmfche1q" path="res://Scenes/Prefabs/Powerups/gun_arm_powerup.tscn" id="3_vwubx"]
+[ext_resource type="PackedScene" uid="uid://cdotuvgx76i0v" path="res://Scenes/Powerups/max_health_item.tscn" id="2_ac6no"]
+[ext_resource type="PackedScene" uid="uid://dpc0egmfche1q" path="res://Scenes/Powerups/gun_arm_powerup.tscn" id="3_vwubx"]
 [ext_resource type="PackedScene" uid="uid://bube8rtyfyjr0" path="res://Scenes/Slime/slime.tscn" id="4_10ql4"]
 [ext_resource type="PackedScene" uid="uid://00q3stnr7y01" path="res://Scenes/Snail/snail.tscn" id="5_2n5cn"]
-[ext_resource type="PackedScene" uid="uid://t3onirt25xn5" path="res://Scenes/Prefabs/destructible_box.tscn" id="6_totpi"]
+[ext_resource type="PackedScene" uid="uid://t3onirt25xn5" path="res://Scenes/MapItems/destructible_box.tscn" id="6_totpi"]
 
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource("1_in2q7")

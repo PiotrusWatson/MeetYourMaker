@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvqlu6e5qw1d1"]
 
-[ext_resource type="PackedScene" uid="uid://cspp6nb2fxucy" path="res://Scenes/spawner.tscn" id="1_m1jwp"]
+[ext_resource type="PackedScene" uid="uid://cspp6nb2fxucy" path="res://Scenes/MapItems/spawner.tscn" id="1_m1jwp"]
 [ext_resource type="PackedScene" uid="uid://00q3stnr7y01" path="res://Scenes/Snail/snail.tscn" id="2_dkihy"]
 
 [node name="Spawner" instance=ExtResource("1_m1jwp")]

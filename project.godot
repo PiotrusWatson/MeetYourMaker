@@ -11,15 +11,16 @@ config_version=5
 [application]
 
 config/name="MeetYourMaker"
-run/main_scene="res://MainMenu.tscn"
+run/main_scene="res://WorldScenes/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://Global.gd"
+Global="*res://Scripts/Preload/Global.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
+MusicPlayer="*res://Scenes/Preload/music_player.tscn"
 
 [display]
 

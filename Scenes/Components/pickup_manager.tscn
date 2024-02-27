@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://kr5jcvadutpv"]
 
-[ext_resource type="Script" path="res://PickupManager.gd" id="1_wx5at"]
+[ext_resource type="Script" path="res://Scripts/Components/PickupManager.gd" id="1_wx5at"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iles0"]
 radius = 1024.0
