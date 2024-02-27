@@ -1,10 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkte1oagx1dyf"]
+[gd_scene load_steps=2 format=3 uid="uid://bkte1oagx1dyf"]
 
-[ext_resource type="Script" path="res://Scripts/SceneLoader.gd" id="1_ujul5"]
-[ext_resource type="Script" path="res://WorldScenes/SceneLoader.gd" id="2_rfds7"]
+[ext_resource type="Script" path="res://Scripts/SceneLoader.gd" id="2_rfds7"]
 
 [node name="God" type="Node"]
-script = ExtResource("1_ujul5")
-
-[node name="SceneLoader" type="Node" parent="."]
 script = ExtResource("2_rfds7")

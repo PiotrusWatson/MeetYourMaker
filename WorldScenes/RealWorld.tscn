@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b0gnb1g6rbqmx"]
+[gd_scene load_steps=13 format=3 uid="uid://b0gnb1g6rbqmx"]
 
 [ext_resource type="Script" path="res://Scripts/Signals.gd" id="1_22fcd"]
 [ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/god.tscn" id="2_q6deh"]
-[ext_resource type="PackedScene" uid="uid://c1ebx3hdak1hs" path="res://Scenes/player.tscn" id="3_th5y0"]
+[ext_resource type="PackedScene" path="res://Scenes/player.tscn" id="3_th5y0"]
 [ext_resource type="TileSet" uid="uid://byku5ncuspyug" path="res://Tiles/RealWorld.tres" id="4_427e5"]
-[ext_resource type="PackedScene" uid="uid://dwjmfsax82oku" path="res://Scenes/Components/follow_camera.tscn" id="5_h4k8i"]
-[ext_resource type="AudioStream" uid="uid://b4ivw6x6l2fi4" path="res://Audio/Music/Dandys_Theme_Complete_Bounce.ogg" id="6_i5svf"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/follow_camera.tscn" id="5_h4k8i"]
 [ext_resource type="Script" path="res://WorldScenes/HealthBar.gd" id="6_rcb6r"]
 [ext_resource type="Script" path="res://Scripts/TutorialDialogueSpitter.gd" id="7_fiqqx"]
 [ext_resource type="Texture2D" uid="uid://ca7uej70vt3u4" path="res://Sprites/background3.png" id="9_ypxbr"]
@@ -55,11 +54,6 @@ text = "Health
 
 [node name="follow_camera" parent="." node_paths=PackedStringArray("thing_to_follow") instance=ExtResource("5_h4k8i")]
 thing_to_follow = NodePath("../Player")
-
-[node name="Song1" type="AudioStreamPlayer" parent="follow_camera"]
-stream = ExtResource("6_i5svf")
-volume_db = -3.748
-autoplay = true
 
 [node name="TutorialDialogueSpitter" type="Timer" parent="."]
 wait_time = 3.0
@@ -113,4 +107,27 @@ position = Vector2(4718, 1682)
 shape = SubResource("CapsuleShape2D_xebop")
 
 [connection signal="timeout" from="TutorialDialogueSpitter" to="TutorialDialogueSpitter" method="_on_timeout"]
+[connection signal="body_entered" from="TileMap/Spawner" to="TileMap/Spawner" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23010" to="TileMap/@Area2D@23010" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23011" to="TileMap/@Area2D@23011" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23023" to="TileMap/@Area2D@23023" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23024" to="TileMap/@Area2D@23024" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23025" to="TileMap/@Area2D@23025" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23026" to="TileMap/@Area2D@23026" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23027" to="TileMap/@Area2D@23027" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23028" to="TileMap/@Area2D@23028" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23063" to="TileMap/@Area2D@23063" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23064" to="TileMap/@Area2D@23064" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23065" to="TileMap/@Area2D@23065" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23066" to="TileMap/@Area2D@23066" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23067" to="TileMap/@Area2D@23067" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23068" to="TileMap/@Area2D@23068" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23069" to="TileMap/@Area2D@23069" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23070" to="TileMap/@Area2D@23070" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23071" to="TileMap/@Area2D@23071" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23072" to="TileMap/@Area2D@23072" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23073" to="TileMap/@Area2D@23073" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23074" to="TileMap/@Area2D@23074" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23075" to="TileMap/@Area2D@23075" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@23076" to="TileMap/@Area2D@23076" method="_on_body_entered"]
 [connection signal="body_entered" from="EndTrigger" to="God" method="_on_end_trigger_body_entered"]
