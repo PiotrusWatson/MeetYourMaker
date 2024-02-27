@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MeetYourMaker"
-run/main_scene="res://WorldScenes/RealWorld.tscn"
+run/main_scene="res://MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -63,7 +63,8 @@ Hover={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogue/FoundItem.dialogue", "res://Dialogue/FoundJetArm.dialogue", "res://Dialogue/FoundMaxHealth.dialogue", "res://Dialogue/IntroCrawl.dialogue", "res://Dialogue/ControlExplanation.dialogue", "res://Dialogue/confrontation.dialogue", "res://Dialogue/SaveGame.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogue/FoundItem.dialogue", "res://Dialogue/FoundJetArm.dialogue", "res://Dialogue/FoundMaxHealth.dialogue", "res://Dialogue/IntroCrawl.dialogue", "res://Dialogue/ControlExplanation.dialogue", "res://Dialogue/confrontation.dialogue", "res://Dialogue/SaveGame.dialogue", "res://Dialogue/Golem_has_been_killed.dialogue", "res://Dialogue/Snail_has_been_killed.dialogue", "res://Dialogue/Father_Fight.dialogue")
+<<<<<<<HEADlocale/translations_pot_files=PackedStringArray("res://Dialogue/FoundItem.dialogue", "res://Dialogue/FoundJetArm.dialogue", "res://Dialogue/FoundMaxHealth.dialogue", "res://Dialogue/IntroCrawl.dialogue", "res://Dialogue/ControlExplanation.dialogue", "res://Dialogue/confrontation.dialogue", "res://Dialogue/SaveGame.dialogue")
 
 [rendering]
 

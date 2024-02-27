@@ -72,11 +72,10 @@ size = Vector2(382, 148)
 collision_layer = 5
 collision_mask = 9
 script = ExtResource("1_db1c1")
-damage_to_player = 10
 metadata/_edit_group_ = true
 
 [node name="Health" parent="." instance=ExtResource("2_e47p0")]
-max_health = 60
+max_health = 10
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gdm4n")
@@ -125,10 +124,10 @@ stream = ExtResource("11_4jwtd")
 [connection signal="hurt" from="Health" to="." method="_on_health_hurt"]
 [connection signal="body_entered" from="PlayerDetect" to="." method="_on_player_detect_body_entered"]
 [connection signal="body_exited" from="PlayerDetect" to="." method="_on_player_detect_body_exited"]
-[connection signal="timeout" from="JumpCooldown" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="JumpCooldown" to="." method="_on_jump_cooldown_timeout"]
-[connection signal="timeout" from="StartJumpTimer" to="." method="_on_start_jump_and_landing_timer_timeout"]
+[connection signal="timeout" from="JumpCooldown" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="StartJumpTimer" to="." method="_on_start_jump_timer_timeout"]
+[connection signal="timeout" from="StartJumpTimer" to="." method="_on_start_jump_and_landing_timer_timeout"]
 [connection signal="area_entered" from="PlayerOnTop" to="." method="_on_player_on_top_area_entered"]
 [connection signal="body_entered" from="PlayerOnTop" to="." method="_on_player_on_top_body_entered"]
 [connection signal="body_entered" from="PlayerCollider" to="." method="_on_player_collider_body_entered"]

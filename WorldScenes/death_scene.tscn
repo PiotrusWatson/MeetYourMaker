@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7ejshjka1ct2"]
 
 [ext_resource type="FontFile" uid="uid://ckpbcif48sqjf" path="res://Fonts/Comic Papyrus.ttf" id="1_0h41j"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/god.tscn" id="1_60tu6"]
+[ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/Prefabs/god.tscn" id="1_60tu6"]
 [ext_resource type="AudioStream" uid="uid://n8kxogfh0nus" path="res://Audio/PlayerSounds/Death_Sound.ogg" id="3_agnpv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xuxjx"]

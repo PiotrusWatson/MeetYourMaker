@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdotuvgx76i0v"]
 
 [ext_resource type="PackedScene" uid="uid://crfk3jkwtky6" path="res://Scenes/Prefabs/Powerups/health_item.tscn" id="1_nmyb7"]
-[ext_resource type="Texture2D" uid="uid://cp3dcbisjc28n" path="res://Sprites/full_dandelion.png" id="2_fdykm"]
+[ext_resource type="Texture2D" path="res://Sprites/full_dandelion.png" id="2_fdykm"]
 
 [node name="MaxHealthItem" instance=ExtResource("1_nmyb7")]
 position = Vector2(-0.8, 0)

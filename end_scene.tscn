@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4knqwji2p1uc"]
+
+[ext_resource type="Texture2D" uid="uid://c3ykxcl0b8156" path="res://Sprites/ScienceMan/full_body.png" id="1_5b2bw"]
+[ext_resource type="Script" path="res://end_scene.gd" id="1_waqwr"]
+
+[node name="EndScene" type="Node2D"]
+script = ExtResource("1_waqwr")
+
+[node name="Guy" type="Sprite2D" parent="."]
+texture = ExtResource("1_5b2bw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-54, -399)

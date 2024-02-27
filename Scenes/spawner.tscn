@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cspp6nb2fxucy"]
+[gd_scene load_steps=5 format=3 uid="uid://cspp6nb2fxucy"]
 
 [ext_resource type="Script" path="res://WorldScenes/Spawner.gd" id="1_ivs5h"]
 [ext_resource type="PackedScene" uid="uid://bube8rtyfyjr0" path="res://Scenes/Slime/slime.tscn" id="2_drge5"]
 [ext_resource type="Texture2D" uid="uid://cy21d2n6dlu32" path="res://Sprites/golem_torso.png" id="2_hfccp"]
 
-[node name="Spawner" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_j6lct"]
+radius = 2842.72
+
+[node name="Spawner" type="Area2D"]
+collision_mask = 9
 script = ExtResource("1_ivs5h")
 thingToSpawn = ExtResource("2_drge5")
 
@@ -15,4 +19,8 @@ autostart = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_hfccp")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_j6lct")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
