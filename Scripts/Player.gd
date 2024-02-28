@@ -7,7 +7,7 @@ extends RigidBody2D
 @onready var arm_joint = $GunArm
 @onready var jet_arm = $JetArm
 @onready var rotator = $Rotator
-
+@onready var grounded_checker = $GroundedChecker
 
 @onready var roll_sound = $Sounds/PlayerRoll
 @onready var jump_sound = $Sounds/JumpSound
@@ -22,6 +22,7 @@ var mouse_pos
 var powerup_list
 var enabled_list = [false, false]
 var allowed_to_move = true
+var should_start_rotating = false
 signal dead
 signal hurt(health)
 signal healing(health)
@@ -70,7 +71,10 @@ func _unhandled_input(event):
 	
 	if event.is_action_pressed("Rotate"):
 		roll_sound.play()
-		rotator.start_rotating()
+		if !grounded_checker.is_grounded:
+			should_start_rotating = true
+		else:
+			rotator.start_rotating()
 	elif event.is_action_released("Rotate"):
 		roll_sound.stop()
 		rotator.stop_rotating()
@@ -164,6 +168,9 @@ func handle_roll_sound():
 
 func _on_grounded_checker_grounded():
 	landing_sound.play()
+	if should_start_rotating:
+		rotator.start_rotating()
+		should_start_rotating = false
 
 
 func _on_jump_handler_jumping():
