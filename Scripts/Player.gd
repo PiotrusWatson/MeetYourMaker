@@ -48,6 +48,7 @@ func enable_function(index: Global.POWERUP_INDEX):
 	pickup_sound.play()
 	enabled_list[index] = true
 	powerup_list[index].visible = true
+	powerup_list[index].activate()
 	for powerup_enabled in enabled_list:
 		if !powerup_enabled:
 			return

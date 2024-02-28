@@ -8,8 +8,15 @@ var is_pushing = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hoverer.init(arm)
-
-
+	set_collision(false)
+func activate():
+	set_collision(true)
+	
+func set_collision(is_colliding):
+	hand.set_collision_layer_value(1, is_colliding)
+	hand.set_collision_layer_value(2, is_colliding)
+	hand.set_collision_mask_value(1, is_colliding)
+	hand.set_collision_mask_value(2, is_colliding)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if is_pushing:

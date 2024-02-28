@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://pgy4ksdnif2c"]
+[gd_scene load_steps=11 format=3 uid="uid://pgy4ksdnif2c"]
 
 [ext_resource type="Script" path="res://Scripts/gun_arm.gd" id="1_xma6y"]
 [ext_resource type="PackedScene" uid="uid://dq4xekqth6v3v" path="res://Scenes/ArmStuff/Variants/arm_segment.tscn" id="2_fp233"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://l724eee8km05" path="res://Scenes/Components/target_follower.tscn" id="4_ri6f8"]
 [ext_resource type="PackedScene" uid="uid://bcatkucck7slo" path="res://Scenes/Components/shooter.tscn" id="5_h6vhr"]
 [ext_resource type="PackedScene" path="res://Scenes/projectile.tscn" id="6_b2yru"]
+[ext_resource type="PackedScene" uid="uid://c2m2nst1xyspf" path="res://Scenes/Components/random_sound_picker.tscn" id="7_dv1rc"]
 [ext_resource type="AudioStream" uid="uid://c3r8alm0h647q" path="res://Audio/PlayerSounds/Laser_Shoot_Sound_1.ogg" id="7_icmfw"]
+[ext_resource type="AudioStream" uid="uid://dqaq585gxt5l" path="res://Audio/PlayerSounds/Laser_Shoot_Sound_2.ogg" id="9_mio18"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_av0cf"]
 
@@ -47,8 +49,7 @@ position = Vector2(6.295, 212.27)
 projectile_prefab = ExtResource("6_b2yru")
 target_location = NodePath("../Hand/BulletHole")
 
-[node name="ShootSound" type="AudioStreamPlayer" parent="Shooter"]
-stream = ExtResource("7_icmfw")
-volume_db = -18.739
+[node name="ShootSounds" parent="." instance=ExtResource("7_dv1rc")]
+clips = Array[AudioStream]([ExtResource("9_mio18"), ExtResource("7_icmfw")])
 
 [connection signal="shot_thing" from="Shooter" to="." method="_on_shooter_shot_thing"]
