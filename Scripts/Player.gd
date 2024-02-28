@@ -38,6 +38,12 @@ func handle_other_powerups(index: Global.POWERUP_INDEX, useful_amount):
 func enable_function(index: Global.POWERUP_INDEX):
 	enabled_list[index] = true
 	powerup_list[index].visible = true
+	for powerup_enabled in enabled_list:
+		if !powerup_enabled:
+			return
+	print("we made it")
+	MusicPlayer.play_track(2)		
+	
 
 func heal(amount):
 	health.heal(amount)

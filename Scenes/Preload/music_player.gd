@@ -12,6 +12,7 @@ func _process(delta):
 func play_track(index):
 	if index >= len(songs):
 		return
+	stop()
 	stream = songs[index]
 	play()
 
