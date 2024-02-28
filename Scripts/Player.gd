@@ -6,6 +6,7 @@ extends RigidBody2D
 @onready var health = $Health
 @onready var arm_joint = $GunArm
 @onready var jet_arm = $JetArm
+@onready var rotator = $Rotator
 
 
 @onready var roll_sound = $Sounds/PlayerRoll
@@ -32,6 +33,7 @@ func _ready():
 	movement.init(self)
 	jump_handler.init(self)
 	arm_joint.init(self)
+	rotator.init(self)
 	powerup_list = [arm_joint, jet_arm]
 	for i in range(len(powerup_list)):
 		powerup_list[i].visible = enabled_list[i]
@@ -65,6 +67,13 @@ func _unhandled_input(event):
 		charge_jump()
 	elif event.is_action_released("Jump"):
 		jump()
+	
+	if event.is_action_pressed("Rotate"):
+		roll_sound.play()
+		rotator.start_rotating()
+	elif event.is_action_released("Rotate"):
+		roll_sound.stop()
+		rotator.stop_rotating()
 		
 	if event.is_action_pressed("Hover") and enabled_list[Global.POWERUP_INDEX.JET]:
 		jet_arm.start_hover()
@@ -73,13 +82,15 @@ func _unhandled_input(event):
 		
 	if event.is_action_pressed("Shoot") and enabled_list[Global.POWERUP_INDEX.GUN]:
 		arm_joint.shoot()
+		
+	
 # Called when the node enters the scene tree for the first time.
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if !allowed_to_move:
+	if !allowed_to_move or rotator.rotating:
 		return
 	horizontal = Input.get_axis("Left", "Right")
 	arm_joint.rotate_towards_point(get_global_mouse_position())
@@ -157,3 +168,6 @@ func _on_grounded_checker_grounded():
 
 func _on_jump_handler_jumping():
 	jump_sound.play()
+
+
+

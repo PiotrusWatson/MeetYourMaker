@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dlxqat6te80mo"]
+[gd_scene load_steps=26 format=3 uid="uid://dlxqat6te80mo"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_jtrst"]
 [ext_resource type="Texture2D" uid="uid://ctyw4sp2d0b0r" path="res://Sprites/robot_head_mouth_closed.png" id="2_uji0j"]
@@ -18,6 +18,9 @@
 [ext_resource type="AudioStream" uid="uid://cdqnyiuauroh2" path="res://Audio/PlayerSounds/Dandy_Rolling_Sound.ogg" id="14_rv8u2"]
 [ext_resource type="AudioStream" uid="uid://c4j07sksu1g51" path="res://Audio/PlayerSounds/PowerUp_PickUp_Sound.ogg" id="17_kluwe"]
 [ext_resource type="PackedScene" uid="uid://0dl7fi0lci6u" path="res://Scenes/Components/grounded_checker.tscn" id="18_fr6sy"]
+[ext_resource type="PackedScene" uid="uid://6qua8ufbtwe4" path="res://Scenes/Components/rotator.tscn" id="19_suemn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8o7fo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yeoou"]
 radius = 243.19
@@ -71,6 +74,7 @@ animations = [{
 [node name="Player" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 8
+physics_material_override = SubResource("PhysicsMaterial_8o7fo")
 gravity_scale = 7.0
 script = ExtResource("1_jtrst")
 death_y_zone = 5000
@@ -174,6 +178,9 @@ volume_db = -3.857
 stream = ExtResource("17_kluwe")
 
 [node name="GroundedChecker" parent="." instance=ExtResource("18_fr6sy")]
+
+[node name="Rotator" parent="." instance=ExtResource("19_suemn")]
+rotation_speed = 90000
 
 [connection signal="animation_finished" from="Spring" to="." method="_on_spring_animation_finished"]
 [connection signal="jumping" from="JumpHandler" to="." method="_on_jump_handler_jumping"]
