@@ -1,0 +1,151 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5bqdva1fn226"]
+
+[ext_resource type="FontFile" uid="uid://biahx4456eedg" path="res://Fonts/KodeMono-VariableFont_wght.ttf" id="1_eyyxk"]
+[ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/god.tscn" id="2_sactu"]
+
+[sub_resource type="Theme" id="Theme_v5y20"]
+default_base_scale = 1.62
+default_font = ExtResource("1_eyyxk")
+default_font_size = 29
+/font_sizes/font_style = 29
+/fonts/Font = ExtResource("1_eyyxk")
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 2
+
+[sub_resource type="FontVariation" id="FontVariation_dfitf"]
+base_font = ExtResource("1_eyyxk")
+variation_embolden = -0.07
+
+[sub_resource type="Theme" id="Theme_a7a33"]
+default_font = SubResource("FontVariation_dfitf")
+/fonts/Font = SubResource("FontVariation_dfitf")
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_v5y20")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 124.0
+offset_right = -114.0
+offset_bottom = -262.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 39
+text = "Created By:
+
+"
+horizontal_alignment = 1
+
+[node name="User1" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_a7a33")
+
+[node name="Label" type="Label" parent="VBoxContainer/User1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+text = "Omi🗿"
+
+[node name="Label2" type="Label" parent="VBoxContainer/User1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+text = "Tiles, ideas, golem programmer"
+
+[node name="User2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_a7a33")
+
+[node name="Label" type="Label" parent="VBoxContainer/User2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+text = "Rosie🎨
+"
+
+[node name="Label2" type="Label" parent="VBoxContainer/User2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+text = "Award winning art"
+
+[node name="User3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_a7a33")
+
+[node name="Label" type="Label" parent="VBoxContainer/User3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+text = "Alex🎶"
+
+[node name="Label2" type="Label" parent="VBoxContainer/User3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+text = "Roughly 3000 different jams, sound effects"
+
+[node name="User4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_a7a33")
+
+[node name="Label" type="Label" parent="VBoxContainer/User4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+text = "Robyn🐌"
+
+[node name="Label2" type="Label" parent="VBoxContainer/User4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+text = "Enemy programming, sound engineer"
+
+[node name="User5" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_a7a33")
+
+[node name="Label" type="Label" parent="VBoxContainer/User5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+text = "Piotrus🏀"
+
+[node name="Label2" type="Label" parent="VBoxContainer/User5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+text = "Player mechanics, level design"
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -217.0
+offset_right = 95.0
+offset_bottom = -149.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back to Menu"
+
+[node name="God" parent="." instance=ExtResource("2_sactu")]
+
+[connection signal="pressed" from="Return" to="God" method="_on_return_pressed"]

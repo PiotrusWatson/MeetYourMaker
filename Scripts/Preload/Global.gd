@@ -1,6 +1,6 @@
 extends Node
 
-
+var in_menu = false
 var max_lives = 100
 var lives = max_lives
 var hud
