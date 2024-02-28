@@ -23,5 +23,9 @@ func rotate_towards_point(point):
 
 func shoot():
 	shooter.shoot()
-	$Shooter/ShootSound.play()
+	
 
+
+
+func _on_shooter_shot_thing():
+	$Shooter/ShootSound.play()

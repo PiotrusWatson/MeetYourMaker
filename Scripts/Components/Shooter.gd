@@ -5,6 +5,7 @@ extends Node2D
 @onready var projectile_box = $ProjectileBox
 @onready var cooldown_timer = $Cooldown
 var gun_owner : RigidBody2D
+signal shot_thing
 
 func init(parent):
 	gun_owner = parent
@@ -21,7 +22,7 @@ func shoot():
 	if !cooldown_timer.is_stopped():
 		return
 		
-	
+	shot_thing.emit()
 	var projectile = projectile_prefab.instantiate()
 	projectile_box.add_child(projectile)
 	projectile.global_position = target_location.global_position

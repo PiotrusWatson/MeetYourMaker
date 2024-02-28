@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cnybpoaunwx0l" path="res://Scenes/ArmStuff/Variants/arm_segment_hand.tscn" id="3_0pjxa"]
 [ext_resource type="PackedScene" uid="uid://l724eee8km05" path="res://Scenes/Components/target_follower.tscn" id="4_ri6f8"]
 [ext_resource type="PackedScene" uid="uid://bcatkucck7slo" path="res://Scenes/Components/shooter.tscn" id="5_h6vhr"]
-[ext_resource type="PackedScene" uid="uid://dn0mddfh2wie2" path="res://Scenes/projectile.tscn" id="6_b2yru"]
+[ext_resource type="PackedScene" path="res://Scenes/projectile.tscn" id="6_b2yru"]
 [ext_resource type="AudioStream" uid="uid://c3r8alm0h647q" path="res://Audio/PlayerSounds/Laser_Shoot_Sound_1.ogg" id="7_icmfw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_av0cf"]
@@ -50,3 +50,5 @@ target_location = NodePath("../Hand/BulletHole")
 [node name="ShootSound" type="AudioStreamPlayer" parent="Shooter"]
 stream = ExtResource("7_icmfw")
 volume_db = -18.739
+
+[connection signal="shot_thing" from="Shooter" to="." method="_on_shooter_shot_thing"]
