@@ -6,6 +6,15 @@ extends RigidBody2D
 @onready var health = $Health
 @onready var arm_joint = $GunArm
 @onready var jet_arm = $JetArm
+
+
+@onready var roll_sound = $Sounds/PlayerRoll
+@onready var jump_sound = $Sounds/JumpSound
+@onready var death_sound = $Sounds/DeathSound
+@onready var landing_sound = $Sounds/LandingSound
+@onready var damaged_sound = $Sounds/DamagedSounds
+@onready var pickup_sound = $Sounds/PowerupPickupSound
+
 @export var death_y_zone = 1500
 var horizontal = 0
 var mouse_pos
@@ -36,13 +45,13 @@ func handle_other_powerups(index: Global.POWERUP_INDEX, useful_amount):
 		health.increase_max_health(useful_amount)
 	
 func enable_function(index: Global.POWERUP_INDEX):
+	pickup_sound.play()
 	enabled_list[index] = true
 	powerup_list[index].visible = true
 	for powerup_enabled in enabled_list:
 		if !powerup_enabled:
 			return
-	print("we made it")
-	MusicPlayer.play_track(2)		
+	MusicPlayer.play_track(2)	
 	
 
 func heal(amount):
@@ -78,6 +87,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	movement.move_player(Vector2(horizontal, 0))
+	handle_roll_sound()
 
 func player():
 	pass
@@ -91,9 +101,10 @@ func charge_jump():
 func jump():
 	spring_animator.play("uncoil")
 	jump_handler.jump()
+		
 	
 func damage(damage):
-	$DamagedSound.play()
+	damaged_sound.play_random()
 	health.damage(damage)
 	
 	
@@ -103,8 +114,8 @@ func _on_spring_animation_finished():
 
 func _on_health_dead():
 	dead.emit()
-	$DeathSound.play()
-	await $DeathSound.finished
+	death_sound.play()
+	await death_sound.finished
 	
 
 
@@ -123,3 +134,25 @@ func make_allowed_to_move(stuff):
 	allowed_to_move = true
 func disallow_to_move(stuff):
 	allowed_to_move = false
+
+func handle_roll_sound():
+	if not roll_sound:
+		return
+	# A bunch of stuff to check if we should play the rolling sound and the volume
+	if abs(linear_velocity.y) > 4:
+		roll_sound.stop()
+		return
+
+	if not roll_sound.playing and abs(angular_velocity) > 1:
+		roll_sound.play()
+		roll_sound.volume_db = -25 + abs(angular_velocity)
+	elif roll_sound.playing and abs(angular_velocity) < 1:
+		roll_sound.stop()
+
+
+func _on_grounded_checker_grounded():
+	landing_sound.play()
+
+
+func _on_jump_handler_jumping():
+	jump_sound.play()

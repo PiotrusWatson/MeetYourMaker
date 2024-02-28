@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2m2nst1xyspf"]
+
+[ext_resource type="AudioStream" uid="uid://d1jub3xmptj20" path="res://Audio/PlayerSounds/Damage_Sound_2.ogg" id="1_yrktg"]
+[ext_resource type="Script" path="res://Scenes/PlayRandom.gd" id="2_5h2he"]
+[ext_resource type="AudioStream" uid="uid://cg8acvbyl6to3" path="res://Audio/PlayerSounds/Damage_Sound_1.ogg" id="3_qdq6r"]
+[ext_resource type="AudioStream" uid="uid://3jn6ixog5jm3" path="res://Audio/PlayerSounds/Damage_Sound_3.ogg" id="4_j010h"]
+
+[node name="DamagedSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_yrktg")
+volume_db = -6.559
+script = ExtResource("2_5h2he")
+clips = Array[AudioStream]([ExtResource("3_qdq6r"), ExtResource("1_yrktg"), ExtResource("4_j010h")])

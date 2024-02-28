@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bube8rtyfyjr0"]
+[gd_scene load_steps=20 format=3 uid="uid://bube8rtyfyjr0"]
 
 [ext_resource type="Script" path="res://Scenes/Slime/Slime.gd" id="1_db1c1"]
 [ext_resource type="Texture2D" uid="uid://cmmhbii7dxyrn" path="res://Sprites/slime_default.png" id="2_crxrw"]
@@ -11,6 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://c5ej4p12i6ftk" path="res://Audio/MobSounds/Slime/Slime_Movement_1.ogg" id="9_s0wlm"]
 [ext_resource type="AudioStream" uid="uid://d3f280tobeedx" path="res://Audio/MobSounds/Slime/Slime_Death_Sound.ogg" id="10_rnx6g"]
 [ext_resource type="AudioStream" uid="uid://c8rl1t4bjlpw7" path="res://Audio/MobSounds/Slime/Slime_Hurt_Sound.ogg" id="11_4jwtd"]
+[ext_resource type="PackedScene" uid="uid://c2m2nst1xyspf" path="res://Scenes/Components/random_sound_picker.tscn" id="11_56evc"]
+[ext_resource type="AudioStream" uid="uid://cr2hdka6dl7va" path="res://Audio/MobSounds/Slime/Slime_Movement_2.ogg" id="13_rl5mf"]
+[ext_resource type="AudioStream" uid="uid://reop54c7ke72" path="res://Audio/MobSounds/Slime/Slime_Movement_3.ogg" id="14_yyb8h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gdm4n"]
 animations = [{
@@ -110,15 +113,15 @@ collision_mask = 9
 position = Vector2(1, 52)
 shape = SubResource("RectangleShape2D_uiktd")
 
-[node name="SlimeMoveSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_s0wlm")
-
 [node name="SlimeDeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_rnx6g")
 attenuation = 3.605
 
 [node name="SlimeHurtSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_4jwtd")
+
+[node name="SlimeMoveSounds" parent="." instance=ExtResource("11_56evc")]
+clips = Array[AudioStream]([ExtResource("9_s0wlm"), ExtResource("13_rl5mf"), ExtResource("14_yyb8h")])
 
 [connection signal="dead" from="Health" to="." method="_on_health_dead"]
 [connection signal="hurt" from="Health" to="." method="_on_health_hurt"]

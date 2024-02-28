@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Signals.gd" id="1_22fcd"]
 [ext_resource type="PackedScene" uid="uid://bkte1oagx1dyf" path="res://Scenes/god.tscn" id="2_q6deh"]
-[ext_resource type="PackedScene" path="res://Scenes/player.tscn" id="3_th5y0"]
+[ext_resource type="PackedScene" uid="uid://dlxqat6te80mo" path="res://Scenes/player.tscn" id="3_th5y0"]
 [ext_resource type="TileSet" uid="uid://byku5ncuspyug" path="res://Tiles/RealWorld.tres" id="4_427e5"]
 [ext_resource type="PackedScene" path="res://Scenes/Components/follow_camera.tscn" id="5_h4k8i"]
 [ext_resource type="Script" path="res://WorldScenes/HealthBar.gd" id="6_rcb6r"]

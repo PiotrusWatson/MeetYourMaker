@@ -1,11 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://7ux0lcew314j"]
+[gd_scene load_steps=2 format=3 uid="uid://0dl7fi0lci6u"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_81rps"]
-radius = 177.064
+[ext_resource type="Script" path="res://Scenes/GroundedChecker.gd" id="1_3xc4k"]
 
-[node name="GroundedChecker" type="Area2D"]
-position = Vector2(0, 173.24)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_81rps")
-debug_color = Color(0.835294, 0, 0.937255, 0.419608)
+[node name="GroundedChecker" type="RayCast2D"]
+target_position = Vector2(0, 250)
+collision_mask = 8
+script = ExtResource("1_3xc4k")

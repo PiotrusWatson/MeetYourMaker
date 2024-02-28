@@ -34,7 +34,7 @@ func _physics_process(delta):
 		$AnimatedSprite2D.animation = "slime_jump"
 		
 	if airborne and is_on_floor():
-		$SlimeMoveSound.play()
+		$SlimeMoveSounds.play_random()
 		airborne = false
 	
 	if attack and jump_timer and is_on_floor():

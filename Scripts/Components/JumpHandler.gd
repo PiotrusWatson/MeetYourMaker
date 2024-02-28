@@ -13,7 +13,7 @@ var player_rigidbody
 var jump_strength
 var grounded = false
 
-signal hit_ground
+signal jumping
 
 
 func _ready():
@@ -31,6 +31,7 @@ func _process(delta):
 	if buffer_frames < max_buffer_frames:
 		if handle_jump():
 			reset_jump()
+			jumping.emit()
 		buffer_frames += 1
 	else:
 		reset_jump()
@@ -50,8 +51,6 @@ func reset_jump():
 func handle_jump():
 	if grounded:
 		player_rigidbody.apply_central_impulse(Vector2(0, -jump_strength))
-		$JumpSound.play()
-		reset_jump()
 		return true
 	return false
 func jump():
@@ -63,8 +62,6 @@ func _on_jump_timer_timeout():
 
 func _on_body_entered(body):
 	grounded = true
-	hit_ground.emit()
-	$LandingSound.play()
 	
 
 func _on_body_exited(body):
