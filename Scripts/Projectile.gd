@@ -22,4 +22,5 @@ func _on_hitbox_body_entered(body):
 		body.damage(damage)
 	if body != parent and body.has_method("destroy_crate"):
 		body.destroy_crate()
-	queue_free()
+	if body != parent:
+		queue_free()

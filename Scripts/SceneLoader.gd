@@ -5,6 +5,7 @@ var game_scene = load("res://WorldScenes/RealWorld.tscn")
 var opening_scene = load("res://WorldScenes/dialogue_scene.tscn")
 var menu_scene = load("res://WorldScenes/MainMenu.tscn")
 var credits_scene = load("res://WorldScenes/credits.tscn")
+var end_scene = load("res://WorldScenes/end_scene.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if get_tree().current_scene.name == "MainMenu" and !Global.in_menu:
@@ -50,3 +51,8 @@ func _on_credits_pressed():
 
 func _on_quit_pressed():
 	exit()
+
+
+func _on_end_trigger_body_entered(body):
+	if body.has_method("player"):
+		load_scene(end_scene)

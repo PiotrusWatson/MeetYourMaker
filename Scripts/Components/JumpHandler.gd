@@ -48,9 +48,11 @@ func reset_jump():
 	is_buffering = false
 	buffer_frames = 0
 
+func calculate_jump_direction():
+	return (player_rigidbody.global_position - global_position).normalized()
 func handle_jump():
 	if grounded:
-		player_rigidbody.apply_central_impulse(Vector2(0, -jump_strength))
+		player_rigidbody.apply_central_impulse(calculate_jump_direction() * jump_strength)
 		return true
 	return false
 func jump():
